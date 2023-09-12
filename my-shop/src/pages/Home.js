@@ -50,20 +50,21 @@ export default function Home() {
           </div>
           <div className="text-center pb-3">
             <h2 className="mb-0 h3 fw-bold">Featured Products</h2>
-            {/* <p className="mb-0 text-capitalize">The purpose of lorem ipsum</p> */}
           </div>
         </div>
 
         <CardSlider />
       </div>
 
-      <div className="section-padding three">
-        <div className="divider">
-          <div className="hr">
-            <hr />
-          </div>
-          <div className="text-center pb-3">
-            <h2 className="mb-0 h3 fw-bold">Latest Products</h2>
+      <div className="background-wrapper">
+        <div className="section-padding three">
+          <div className="divider color">
+            <div className="hr">
+              <hr />
+            </div>
+            <div className="text-center pb-3">
+              <h2 className="mb-0 h3 fw-bold">Latest Products</h2>
+            </div>
           </div>
         </div>
       </div>

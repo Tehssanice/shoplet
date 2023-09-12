@@ -40,7 +40,7 @@ code {
 
 .navbar > .container-fluid {
   flex-wrap: wrap !important;
-  width: 100%;
+  width: 94%;
 }
 
 ul.second-list.d-flex {
@@ -101,7 +101,7 @@ ul.second-list.d-flex li a > i {
 }
 
 .foot .row {
-  width: 96%;
+  width: 90%;
   margin: 5px auto;
 }
 
@@ -174,6 +174,8 @@ ul.second-list.d-flex li a > i {
 
 .divider {
   position: relative;
+  width: 93%;
+  margin: 1px auto;
 }
 
 .divider .hr {
@@ -189,34 +191,38 @@ ul.second-list.d-flex li a > i {
   left: 42%;
 }
 
+.divider.color h2 {
+  background-color: #eceaea;
+}
+
 .section-padding {
-  width: 95%;
-  margin: auto;
+  width: 97%;
+  margin: 20px auto;
   padding: 1px 8px;
 }
 
 .product-thumbs {
   display: flex;
+  width: 95%;
+  flex-direction: row;
+}
+
+.product-thumbs .card {
+  margin-bottom: 15px;
 }
 
 .card-image {
   height: 200px;
+  padding: 10px;
+  background: #fff;
+  margin: auto;
 }
 
-/* .card-image img {
-  width: 100%;
-  height: 80%;
-} */
-
-/* .cards-wrapper {
-  display: flex;
-  justify-content: center;
+.card-image img {
+  height: 100%;
+  max-width: 100%;
+  width: auto;
 }
-
-.image-wrapper {
-  height: 25vh;
-  width: 100%;
-} */
 
 .card {
   margin: 0 0.5em;
@@ -225,37 +231,25 @@ ul.second-list.d-flex li a > i {
   border-radius: 0;
 }
 
-.card {
-  width: 25%;
+.card .ratings,
+.card .product-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
 }
 
-/* .carousel-inner {
-  padding: 1em;
-} */
+.card-body {
+  border-top: 1px solid #d0cccc !important;
+}
 
-/* .carousel-control-prev,
-.carousel-control-next {
-  background-color: #e1e1e1;
-  width: 5vh;
-  height: 10vh;
-  border-radius: 50%;
-  top: 50%;
-  left: 85%;
-  right: -90%;
-  transform: translateY(-50%);
-} */
+.card p.mb-0.h6.fw-bold.product-price {
+  color: #bd3a3a;
+}
 
-/* .carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-color: rgb(99, 100, 100, 0.5);
-  padding: 5px 10px;
-} */
-
-/* @media (min-width: 768px) {
-  .card img {
-    height: 11em;
-  }
-} */
+.background-wrapper {
+  background-color: #eceaea;
+}
 
 @media screen and (max-width: 480px) {
   .navbar-brand {
@@ -268,6 +262,10 @@ ul.second-list.d-flex li a > i {
 
   .offcanvas-body ul.second-list.d-flex {
     width: 41%;
+  }
+
+  .foot .row {
+    width: 89%;
   }
 
   .foot ul li {
@@ -313,6 +311,66 @@ ul.second-list.d-flex li a > i {
     padding: 10px;
     position: absolute;
     top: -21px;
-    left: 25%;
+    left: 30%;
+  }
+
+  .product-thumbs {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-device-width: 481px) and (max-device-width: 991px) {
+  .navbar-brand {
+    width: 20%;
+  }
+
+  .carousel-caption h1 {
+    font-size: 27px;
+  }
+
+  .carousel-caption {
+    bottom: 25% !important;
+    left: 13% !important;
+  }
+
+  .carousel-caption h4,
+  .carousel-caption p {
+    display: none;
+  }
+
+  .carousel-caption button {
+    font-size: 13px;
+  }
+
+  .foot .image-holder {
+    width: 20%;
+  }
+
+  .foot ul.d-flex {
+    width: 40%;
+    float: left;
+  }
+
+  .foot .row {
+    width: 89%;
+  }
+
+  .foot ul li {
+    text-align: left;
+  }
+
+  .divider h2 {
+    left: 30%;
+  }
+
+  .container {
+    max-width: 920px !important;
+  }
+}
+
+@media screen and (min-device-width: 181px) and (max-device-width: 479px) {
+  .navbar-brand {
+    width: 60%;
   }
 }
