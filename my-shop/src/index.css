@@ -10,6 +10,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
+.nav-cover {
+  height: 65px;
+}
+
 .nav-cover nav {
   height: 65px;
   position: fixed;
@@ -43,8 +47,13 @@ code {
   width: 94%;
 }
 
-ul.second-list.d-flex {
+.list-cover {
   width: 20%;
+  margin-top: 10px;
+}
+
+ul.second-list.d-flex {
+  width: 100%;
   justify-content: space-around;
   align-items: center;
 }
@@ -249,6 +258,28 @@ ul.second-list.d-flex li a > i {
 
 .background-wrapper {
   background-color: #eceaea;
+}
+
+.form-cover {
+  border: 1px solid #c0b8b8;
+  margin: 30px auto;
+  width: 45%;
+  padding: 20px;
+}
+
+.form-cover form {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  row-gap: 15px;
+  color: #6b6a6a;
+  font-weight: 500;
+}
+
+.form-cover form input {
+  border: 1px solid #c2bbbb;
+  height: 40px;
+  border-radius: 5px;
 }
 
 @media screen and (max-width: 480px) {

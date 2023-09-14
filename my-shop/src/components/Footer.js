@@ -20,18 +20,30 @@ export default function Footer() {
         <div className="col-12 col-lg-3">
           <ul>
             <li>Explore</li>
-            <li>Home</li>
-            <li>About</li>
-            <li>Contact</li>
+            <a href="/">
+              <li>Home</li>
+            </a>
+            <a href="/about">
+              <li>About</li>
+            </a>
+            <a href="/contact">
+              <li>Contact</li>
+            </a>
           </ul>
         </div>
 
         <div className="col-12 col-lg-3">
           <ul>
             <li>Personal Links</li>
-            <li>Sign In</li>
-            <li>Sign Up</li>
-            <li>User Profile</li>
+            <a href="/signin">
+              <li>Sign In</li>
+            </a>
+            <a href="/signup">
+              <li>Sign Up</li>
+            </a>
+            <a href="/profile">
+              <li>Profile</li>
+            </a>
           </ul>
         </div>
 

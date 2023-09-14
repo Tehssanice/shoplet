@@ -1,10 +1,9 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import useFetch from "../components/useFetch";
 
-export default function CardSlider() {
-  const { data: products } = useFetch("https://dummyjson.com/products");
+export default function ProductList(props) {
+  const products = props.product;
   // console.log(products);
 
   const responsive = {
@@ -42,15 +41,17 @@ export default function CardSlider() {
                     <div className="position-relative overflow-hidden">
                       <a href="/">
                         <div className="card-image">
-                          <img src={product.thumbnail} className="card-img-top" alt="..." />
+                          <img src={product.imageUrl || product.image} className="card-img-top" alt="..." />
                         </div>
                       </a>
                     </div>
                     <div className="card-body">
                       <div className="product-info text-center">
-                        <h6 className="mb-1 fw-bold product-name">{product.title}</h6>
+                        <h6 className="mb-1 fw-bold product-name">
+                          {product.title || product.firstName} {product.lastName}
+                        </h6>
                         <div className="ratings h6">{product.category}</div>
-                        <p className="mb-0 h6 fw-bold product-price"> $ {product.price}</p>
+                        <p className="mb-0 h6 fw-bold product-price">$ {product.price || product.age}</p>
                       </div>
                     </div>
                   </div>

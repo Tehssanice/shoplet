@@ -33,44 +33,46 @@ export default function Navbarr() {
                 <Nav className="justify-content-start flex-grow-1 pe-3">
                   <Nav.Link href="/">Home</Nav.Link>
                   <hr />
-                  <Nav.Link href="/">About</Nav.Link>
+                  <Nav.Link href="/about">About</Nav.Link>
                   <hr />
-                  <Nav.Link href="/">Contact</Nav.Link>
+                  <Nav.Link href="/contact">Contact</Nav.Link>
                   <hr />
-                  <Nav.Link href="/">Sign In</Nav.Link>
+                  <Nav.Link href="/signin">Sign In</Nav.Link>
                   <hr />
-                  <Nav.Link href="/">Sign Up</Nav.Link>
+                  <Nav.Link href="/signup">Sign Up</Nav.Link>
                   <hr />
                 </Nav>
 
-                <ul className="second-list d-flex">
-                  <li className="nav-item">
-                    <a href="/">
-                      <i className="bi bi-search"></i>
-                    </a>
-                  </li>
+                <div className="list-cover">
+                  <ul className="second-list d-flex">
+                    <li className="nav-item">
+                      <a href="/">
+                        <i className="bi bi-search"></i>
+                      </a>
+                    </li>
 
-                  <li className="nav-item">
-                    <a href="/">
-                      <i className="bi bi-suit-heart"></i>
-                    </a>
-                  </li>
+                    <li className="nav-item">
+                      <a href="/">
+                        <i className="bi bi-suit-heart"></i>
+                      </a>
+                    </li>
 
-                  <li className="nav-item basket">
-                    <a href="/">
-                      <div className="cart">
-                        <i className="bi bi-basket2 dark"></i>
-                      </div>
-                      <div className="display-none">0</div>
-                    </a>
-                  </li>
+                    <li className="nav-item basket">
+                      <a href="/">
+                        <div className="cart">
+                          <i className="bi bi-basket2 dark"></i>
+                        </div>
+                        <div className="display-none">0</div>
+                      </a>
+                    </li>
 
-                  <li className="nav-item">
-                    <a href="/">
-                      <i className="bi bi-person-circle"></i>
-                    </a>
-                  </li>
-                </ul>
+                    <li className="nav-item">
+                      <a href="/">
+                        <i className="bi bi-person-circle"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
           </Container>
