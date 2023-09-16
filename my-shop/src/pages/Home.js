@@ -87,23 +87,33 @@ export default function Home() {
           </div>
 
           <div className="categories">
-            <button onClick={() => setFilteredProducts("")} className="btn btn-outline-dark">
-              All
-            </button>
-            {categories && (
-              <>
-                {categories.map((category) => (
-                  <div key={category.index}>
-                    <button
-                      onClick={() => setFilteredProducts(category)}
-                      className="btn btn-outline-dark sentence-case"
-                    >
-                      {category}
+            <div className="row">
+              <div className="col-lg-4 col-12 mx-auto">
+                <div class="product-tab-menu table-responsive">
+                  <ul class="nav nav-pills flex-nowrap button-list" id="pills-tab" role="tablist">
+                    <button onClick={() => setFilteredProducts("")} className="btn btn-outline-dark mx-2">
+                      All
                     </button>
-                  </div>
-                ))}
-              </>
-            )}
+                    {categories && (
+                      <>
+                        {categories.map((category) => (
+                          <li class="nav-item" role="presentation" key={category.index}>
+                            <button
+                              onClick={() => setFilteredProducts(category)}
+                              className="btn btn-outline-dark sentence-case "
+                              data-bs-toggle="pill"
+                              type="button"
+                            >
+                              {category}
+                            </button>
+                          </li>
+                        ))}
+                      </>
+                    )}
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="row-container">

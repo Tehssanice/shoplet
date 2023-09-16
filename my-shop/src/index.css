@@ -395,6 +395,23 @@ ul.second-list.d-flex li a > i {
   .form-cover form input {
     height: 32px;
   }
+
+  .categories {
+    width: 100%;
+  }
+
+  .categories .row {
+    width: 100%;
+  }
+
+  .categories ul.button-list li {
+    margin-right: 7px;
+  }
+
+  .categories ul.button-list li:nth-child(4) button,
+  .categories ul.button-list li:nth-child(5) button {
+    width: 160px;
+  }
 }
 
 @media screen and (min-device-width: 481px) and (max-device-width: 991px) {
@@ -447,6 +464,14 @@ ul.second-list.d-flex li a > i {
 
   .form-cover {
     width: 60%;
+  }
+
+  .categories {
+    width: 100%;
+  }
+
+  .categories ul.button-list li {
+    margin-right: 7px;
   }
 }
 
