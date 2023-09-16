@@ -13,12 +13,14 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/sigin" element={<Signin />} />
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/signin" element={<Signin />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        </div>
         <Footer />
       </div>
     </BrowserRouter>

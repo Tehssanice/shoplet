@@ -10,8 +10,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-.nav-cover {
-  height: 65px;
+.App .content {
+  margin-top: 65px;
 }
 
 .nav-cover nav {
@@ -25,7 +25,9 @@ code {
   z-index: 20;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
-
+.sentence-case {
+  text-transform: capitalize;
+}
 .navbar-brand {
   width: 10%;
 }
@@ -48,7 +50,7 @@ code {
 }
 
 .list-cover {
-  width: 20%;
+  width: 29%;
   margin-top: 10px;
 }
 
@@ -140,6 +142,15 @@ ul.second-list.d-flex li a > i {
   font-weight: bold;
   font-size: 17px;
   margin-bottom: 10px;
+}
+
+.foot ul a {
+  color: #333;
+  text-decoration: none;
+}
+
+.foot ul a > li:first-child {
+  font-weight: 400;
 }
 
 .foot ul.d-flex {
@@ -263,7 +274,8 @@ ul.second-list.d-flex li a > i {
 .form-cover {
   border: 1px solid #c0b8b8;
   margin: 30px auto;
-  width: 45%;
+  margin-top: 40px;
+  width: 35%;
   padding: 20px;
 }
 
@@ -282,6 +294,28 @@ ul.second-list.d-flex li a > i {
   border-radius: 5px;
 }
 
+.categories {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px auto;
+  width: 44%;
+}
+
+.categories button {
+  border-radius: 1px;
+}
+
+.row-container {
+  width: 90%;
+  margin: 1px auto;
+}
+
+.row-container .row > * {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
 @media screen and (max-width: 480px) {
   .navbar-brand {
     width: 75%;
@@ -291,8 +325,12 @@ ul.second-list.d-flex li a > i {
     width: 35%;
   }
 
-  .offcanvas-body ul.second-list.d-flex {
-    width: 41%;
+  .card-image {
+    height: 150px;
+  }
+
+  .offcanvas-body .list-cover {
+    width: 45%;
   }
 
   .foot .row {
@@ -349,6 +387,14 @@ ul.second-list.d-flex li a > i {
     display: flex;
     flex-direction: column;
   }
+
+  .form-cover {
+    width: 84%;
+  }
+
+  .form-cover form input {
+    height: 32px;
+  }
 }
 
 @media screen and (min-device-width: 481px) and (max-device-width: 991px) {
@@ -398,10 +444,18 @@ ul.second-list.d-flex li a > i {
   .container {
     max-width: 920px !important;
   }
+
+  .form-cover {
+    width: 60%;
+  }
 }
 
 @media screen and (min-device-width: 181px) and (max-device-width: 479px) {
   .navbar-brand {
     width: 60%;
+  }
+
+  .form-cover {
+    width: 90%;
   }
 }

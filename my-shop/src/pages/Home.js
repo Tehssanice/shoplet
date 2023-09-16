@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import ProductList from "../components/ProductList";
 import useFetch from "../components/useFetch";
 
 export default function Home() {
-  const { data: products, isLoading, error } = useFetch("https://hub.dummyapis.com/employee");
-  const { data: items } = useFetch("https://fakestoreapi.com/products");
-  console.log(items);
-  console.log(products);
+  const { data: products, isLoading, error } = useFetch("https://fakestoreapi.com/products");
+  const { data: categories } = useFetch("https://fakestoreapi.com/products/categories");
+  // const { data: items } = useFetch("https://hub.dummyapis.com/employee");
+  // console.log(categories);
+
+  const [filteredProducts, setFilteredProducts] = useState("");
 
   return (
     <>
@@ -59,9 +61,17 @@ export default function Home() {
           </div>
         </div>
         {error && <div>{error}</div>}
-        {isLoading && <div>Loading ...</div>}
+        {isLoading && (
+          <div>
+            <div class="d-flex justify-content-center">
+              <div class="spinner-border" role="status">
+                {/* <span class="sr-only">Loading...</span> */}
+              </div>
+            </div>
+          </div>
+        )}
 
-        {items && <ProductList product={items} />}
+        {products && <ProductList product={products} />}
       </div>
 
       <div className="background-wrapper">
@@ -70,15 +80,72 @@ export default function Home() {
             <div className="hr">
               <hr />
             </div>
+
             <div className="text-center pb-3">
               <h2 className="mb-0 h3 fw-bold">Latest Products</h2>
             </div>
           </div>
-          {items && <ProductList product={items} />}
+
+          <div className="categories">
+            <button onClick={() => setFilteredProducts("")} className="btn btn-outline-dark">
+              All
+            </button>
+            {categories && (
+              <>
+                {categories.map((category) => (
+                  <div key={category.index}>
+                    <button
+                      onClick={() => setFilteredProducts(category)}
+                      className="btn btn-outline-dark sentence-case"
+                    >
+                      {category}
+                    </button>
+                  </div>
+                ))}
+              </>
+            )}
+          </div>
+
+          <div className="row-container">
+            <div className="row row-cols-1 row-cols-md-3">
+              {products && (
+                <>
+                  {products
+                    .filter((product) => (filteredProducts ? product.category === filteredProducts : product))
+                    .map((product) => (
+                      <div className="col-lg-3 col-6 mb-4">
+                        <div className="card " key={product.id}>
+                          <div className="position-relative overflow-hidden">
+                            <a href="/">
+                              <div className="card-image">
+                                <img src={product.imageUrl || product.image} className="card-img-top" alt="..." />
+                              </div>
+                            </a>
+                          </div>
+                          <div className="card-body">
+                            <div className="product-info text-center">
+                              <h6 className="mb-1 fw-bold product-name">
+                                {product.title || product.firstName} {product.lastName}
+                              </h6>
+                              <div className="ratings h6">{product.category}</div>
+                              <p className="mb-0 h6 fw-bold product-price">
+                                {`$`}
+                                {product.price || product.age}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                </>
+              )}
+            </div>
+          </div>
 
           <br />
           <br />
-          {products && <ProductList product={products} />}
+
+          {/* {items && <ProductList product={items} />} */}
         </div>
       </div>
     </>
