@@ -212,7 +212,7 @@ ul.second-list.d-flex li a > i {
 }
 
 .divider.color h2 {
-  background-color: #eceaea;
+  background-color: #f4f4f4c7;
 }
 
 .section-padding {
@@ -268,7 +268,7 @@ ul.second-list.d-flex li a > i {
 }
 
 .background-wrapper {
-  background-color: #eceaea;
+  background-color: #f4f4f4c7;
 }
 
 .form-cover {
@@ -314,6 +314,10 @@ ul.second-list.d-flex li a > i {
 .row-container .row > * {
   padding-left: 0px !important;
   padding-right: 0px !important;
+}
+
+.categories ul.button-list li {
+  margin-right: 7px;
 }
 
 @media screen and (max-width: 480px) {
@@ -402,10 +406,6 @@ ul.second-list.d-flex li a > i {
 
   .categories .row {
     width: 100%;
-  }
-
-  .categories ul.button-list li {
-    margin-right: 7px;
   }
 
   .categories ul.button-list li:nth-child(4) button,

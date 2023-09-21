@@ -1,0 +1,36 @@
+{
+  "blogs": [
+    {
+      "title": "Heels shop",
+      "author": "Virendra",
+      "date": "13th Dec 2022",
+      "description": "",
+      "image": "",
+      "body": ""
+    },
+    {
+      "title": "Home of jeans",
+      "author": "June",
+      "date": "11th June 2002",
+      "description": "",
+      "image": "",
+      "body": ""
+    },
+    {
+      "title": "Clothe Shop",
+      "author": "Nate",
+      "date": "5th April 2010",
+      "description": "",
+      "image": "",
+      "body": ""
+    },
+    {
+      "title": "New arrival date",
+      "author": "Clement",
+      "date": "7th May 2023",
+      "description": "",
+      "image": "",
+      "body": ""
+    }
+  ]
+}
