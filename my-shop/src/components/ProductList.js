@@ -39,7 +39,7 @@ export default function ProductList(props) {
                 {products.map((product) => (
                   <div className="card " key={product.id}>
                     <div className="position-relative overflow-hidden">
-                      <a href="/">
+                      <a href="/product-detail">
                         <div className="card-image">
                           <img src={product.image} className="card-img-top" alt="..." />
                         </div>

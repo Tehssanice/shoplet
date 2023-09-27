@@ -320,6 +320,93 @@ ul.second-list.d-flex li a > i {
   margin-right: 7px;
 }
 
+.blog-cards .row .card-body {
+  text-align: left;
+}
+
+.blog-cards .row .card-body h5 {
+  font-size: 16px;
+}
+
+.card-body a.btn.btn-outline-dark.btn-ecomm.mt-3 {
+  background: #000;
+  border-radius: 1px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.card-image img:hover {
+  height: 200px;
+  transition: all ease-in 0.5s;
+}
+
+.product-image-cover {
+  height: 500px;
+}
+
+.product-image {
+  width: 63%;
+  margin: 30px auto;
+  box-shadow: 1px 1px 14px 6px #c9c6c6;
+  border: 1px solid #c9c6c6;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.product-image img {
+  height: 100%;
+  max-width: 100%;
+  width: auto;
+}
+
+.product-page .product-title {
+  font-size: 40px;
+}
+
+img {
+  width: 100%;
+}
+
+.review-image-cover {
+  width: 33%;
+  margin: 5px auto;
+}
+
+.review-img {
+  height: 100px;
+  padding: 7px;
+  border: 1px solid red;
+  border-radius: 50%;
+}
+
+.review-img img {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  border-radius: 50%;
+}
+
+.reviews-wrapper .card {
+  height: 360px;
+}
+
+.stack {
+  display: flex;
+  margin-bottom: 15px;
+  justify-content: space-between;
+}
+
+.hstack {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.reviews-wrapper .card p {
+  font-size: 15px;
+  text-align: start;
+}
+
 @media screen and (max-width: 480px) {
   .navbar-brand {
     width: 75%;
@@ -412,9 +499,21 @@ ul.second-list.d-flex li a > i {
   .categories ul.button-list li:nth-child(5) button {
     width: 160px;
   }
+
+  .product-page .product-title {
+    font-size: 30px;
+  }
+
+  .reviews-wrapper .card {
+    height: 370px;
+  }
+
+  .review-image-cover {
+    width: 45%;
+  }
 }
 
-@media screen and (min-device-width: 481px) and (max-device-width: 991px) {
+@media screen and (min-width: 481px) and (max-width: 991px) {
   .navbar-brand {
     width: 20%;
   }
@@ -472,6 +571,10 @@ ul.second-list.d-flex li a > i {
 
   .categories ul.button-list li {
     margin-right: 7px;
+  }
+
+  .reviews-wrapper .card {
+    height: 395px;
   }
 }
 

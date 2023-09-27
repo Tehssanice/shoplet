@@ -4,33 +4,78 @@
       "title": "Heels shop",
       "author": "Virendra",
       "date": "13th Dec 2022",
-      "description": "",
-      "image": "",
-      "body": ""
+      "description": "Best shopper",
+      "image": "../images/01.webp",
+      "body": "Casual shirt to wear out alert! Check out our new all-cotton flannel shirt! This shirt is made from 100% cotton, making it soft to the touch and gentle on the skin. The long-sleeve design is perfect for those cooler days or nights, while the button-up closure makes it easy to take on and off. The plaid design is perfect for any casual occasion, whether going to a barbecue or running errands. The shirt is made in Italy, so you know you’re getting a high-quality product."
     },
     {
       "title": "Home of jeans",
       "author": "June",
-      "date": "11th June 2002",
-      "description": "",
-      "image": "",
-      "body": ""
+      "date": "2nd June 2016",
+      "description": "Cool look today",
+      "image": "../images/02.webp",
+      "body": "Do you need a beautiful and unique dress for your next special occasion? Look no further than this chiffon bridesmaid dress! This gorgeous dress features a scoop neckline, lace chiffon fabric, and a hi-lo hemline that is sure to turn heads. The 94% nylon and 6% spandex fabric are comfortable and figure-flattering, and the hand wash-only care instructions make it easy to keep this dress looking its best. The zipper closure type ensures a perfect fit, and the imported origin means you can be confident in the quality of this dress. Whether you’re attending a wedding, a party, or a formal event, this floral lace chiffon dress is a perfect choice."
     },
     {
       "title": "Clothe Shop",
       "author": "Nate",
       "date": "5th April 2010",
-      "description": "",
-      "image": "",
-      "body": ""
+      "description": "Wonderful for meet-ups",
+      "image": "../images/03.webp",
+      "body": "Are you looking for something fun and flirty? Our Mini Swing Skater Dress is ideal for any occasion! This dress is perfect for a night out dancing or for a date night. This dress is sure to turn heads with a deep V-neck, long sleeves, and a waist tie ruffle. The mini swing length is perfect for showing off your legs, and the closure-type pull makes it easy to get in and out of. Plus, it’s machine washable for easy care."
     },
     {
       "title": "New arrival date",
       "author": "Clement",
       "date": "7th May 2023",
-      "description": "",
-      "image": "",
-      "body": ""
+      "description": "It has no description",
+      "image": "../images/04.webp",
+      "body": "The perfect way to add a little romance and spice things up in the bedroom! Or maybe you want to feel sexy and confident in your skin. Made from a soft, luxurious fabric, it features four pieces in satin, lace, and belted robe, making you feel like a queen. Plus, the robe gives you an extra layer of coverage and makes it perfect for lounging around the house."
     }
-  ]
+  ],
+  "reviews": [
+    {
+      "image": "../images/person-4.jpeg",
+      "date": "10th Jan 2023",
+      "writer": "Bianca",
+      "content": "I love these clothes! I love the fit. I love the price! I am on my 3rd order from you. I too was skeptical because you were international.",
+      "rate": "4"
+    },
+    {
+      "image": "../images/me.JPG",
+      "date": "5th April 2010",
+      "writer": "Rose",
+      "content": " love the clothes from this website! I am so glad I found them...everything has been spot on, fits wonderfully, styles are trendy and lots to choose from!",
+      "rate": "3"
+    },
+    {
+      "image": "../images/person-3.jpeg",
+      "date": "7th May 2021",
+      "writer": "Janeth",
+      "content": "OMG..terrible store!! Found this store while visiting the UK.. what horrible clothings with expensive prices.",
+      "rate": "1"
+    },
+    {
+      "image": "../images/men.jpg",
+      "date": "2nd Nov 2019",
+      "writer": "Mark",
+      "content": "I completely dislike this site, found it on EBay at first now I just order directly through them...I am hardly complemented on my outfits I will not be back for more...",
+      "rate": "2"
+    },
+    {
+      "image": "../images/person-1.jpeg",
+      "date": "13th Dec 2022",
+      "writer": "Ken",
+      "content": "I just got my first order and I have one word WOW!! I Love these cloths. I had my doubts before I ordered, but this was nice.",
+      "rate": "3"
+    },
+    {
+      "image": "../images/person-2.jpeg",
+      "date": "2nd June 2016",
+      "writer": "Clement",
+      "content": "This is my very first order through site, and I am totally and completely satisfied! The fit is great and so are the prices.",
+      "rate": "5"
+    }
+  ],
+  "carousel-items": []
 }

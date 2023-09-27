@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import ProductList from "../components/ProductList";
 import useFetch from "../components/useFetch";
+import BlogPage from "../components/BlogPage";
 
 export default function Home() {
   const { data: products, isLoading, error } = useFetch("https://fakestoreapi.com/products");
   const { data: categories } = useFetch("https://fakestoreapi.com/products/categories");
   // const { data: items } = useFetch("https://hub.dummyapis.com/employee");
-  console.log(categories);
+  // console.log(categories);
 
   const [filteredProducts, setFilteredProducts] = useState("");
 
@@ -126,7 +127,7 @@ export default function Home() {
                       <div className="col-lg-3 col-6 mb-4">
                         <div className="card " key={product.id}>
                           <div className="position-relative overflow-hidden">
-                            <a href="/">
+                            <a href="/product-detail">
                               <div className="card-image">
                                 <img src={product.imageUrl || product.image} className="card-img-top" alt="..." />
                               </div>
@@ -154,8 +155,6 @@ export default function Home() {
 
           <br />
           <br />
-
-          {/* {items && <ProductList product={items} />} */}
         </div>
       </div>
 
@@ -164,7 +163,7 @@ export default function Home() {
           <div className="text-center pb-3">
             <h3 className="mb-0 h3 fw-bold">What We Offer!</h3>
           </div>
-          <div className="row row-cols-1 row-cols-lg-4 g-4">
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 ">
             <div className="col d-flex">
               <div className="card depth border-0 rounded-0 border-bottom border-primary border-3 w-100">
                 <div className="card-body text-center">
@@ -223,87 +222,12 @@ export default function Home() {
 
       <section className="section-padding">
         <div className="container">
-          <div className="text-center pb-3">
+          <div className="text-center pb-3 pt-4">
             <h3 className="mb-0 fw-bold">Latest Blog</h3>
             <p className="mb-0 text-capitalize">Check our latest news</p>
           </div>
-          <div className="blog-cards">
-            <div className="row row-cols-1 row-cols-lg-3 g-4">
-              <div className="col">
-                <div className="card">
-                  <img src="assets/images/blog/01.webp" className="card-img-top rounded-0" alt="..." />
-                  <div className="card-body">
-                    <div className="d-flex align-items-center gap-4">
-                      <div className="posted-by">
-                        <p className="mb-0">
-                          <i className="bi bi-person me-2"></i>Virendra
-                        </p>
-                      </div>
-                      <div className="posted-date">
-                        <p className="mb-0">
-                          <i className="bi bi-calendar me-2"></i>15 Aug, 2022
-                        </p>
-                      </div>
-                    </div>
-                    <h5 className="card-title fw-bold mt-3">Blog title here</h5>
-                    <p className="mb-0">Some quick example text to build on the card title and make.</p>
-                    <a href="blog-read.html" className="btn btn-outline-dark btn-ecomm mt-3">
-                      Read More
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col">
-                <div className="card">
-                  <img src="assets/images/blog/02.webp" className="card-img-top rounded-0" alt="..." />
-                  <div className="card-body">
-                    <div className="d-flex align-items-center gap-4">
-                      <div className="posted-by">
-                        <p className="mb-0">
-                          <i className="bi bi-person me-2"></i>Virendra
-                        </p>
-                      </div>
-                      <div className="posted-date">
-                        <p className="mb-0">
-                          <i className="bi bi-calendar me-2"></i>15 Aug, 2022
-                        </p>
-                      </div>
-                    </div>
-                    <h5 className="card-title fw-bold mt-3">Blog title here</h5>
-                    <p className="mb-0">Some quick example text to build on the card title and make.</p>
-                    <a href="blog-read.html" className="btn btn-outline-dark btn-ecomm mt-3">
-                      Read More
-                    </a>
-                  </div>
-                </div>
-              </div>
 
-              <div className="col">
-                <div className="card">
-                  <img src="assets/images/blog/03.webp" className="card-img-top rounded-0" alt="..." />
-                  <div className="card-body">
-                    <div className="d-flex align-items-center gap-4">
-                      <div className="posted-by">
-                        <p className="mb-0">
-                          <i className="bi bi-person me-2"></i>Genie
-                        </p>
-                      </div>
-                      <div className="posted-date">
-                        <p className="mb-0">
-                          <i className="bi bi-calendar me-2"></i>15 June, 2022
-                        </p>
-                      </div>
-                    </div>
-                    <h5 className="card-title fw-bold mt-3">Blog title here</h5>
-                    <p className="mb-0">Some quick example text to build on the card title and make.</p>
-                    <a href="blog-read.html" className="btn btn-outline-dark btn-ecomm mt-3">
-                      Read More
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          {<BlogPage />}
         </div>
       </section>
     </>
