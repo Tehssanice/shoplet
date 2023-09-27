@@ -139,7 +139,7 @@ export default function ProductDetail() {
               {reviews && (
                 <>
                   {reviews.map((review) => (
-                    <div className="col-xs-12 col-sm-6 col-md-4 mb-4">
+                    <div className="col-xs-12 col-sm-6 col-md-6 mb-4">
                       <div className="card ">
                         <div className="">
                           <span className="badge bg-green rounded-0">
@@ -147,7 +147,7 @@ export default function ProductDetail() {
                             <i className="bi bi-star-fill ms-1"></i>
                           </span>
                         </div>
-                        <div className="card-body flex-grow-1">
+                        <div className="card-body">
                           <div className="review-image-cover">
                             <div className="review-img">
                               <img src={review.image} alt="" />

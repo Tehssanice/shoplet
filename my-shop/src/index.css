@@ -511,6 +511,14 @@ img {
   .review-image-cover {
     width: 45%;
   }
+
+  .product-image-cover {
+    height: 385px;
+  }
+
+  .product-image {
+    width: 90%;
+  }
 }
 
 @media screen and (min-width: 481px) and (max-width: 991px) {
@@ -585,5 +593,17 @@ img {
 
   .form-cover {
     width: 90%;
+  }
+
+  .reviews-wrapper .card {
+    height: 410px;
+  }
+
+  .cart-buttons .buttons a {
+    font-size: 14px;
+  }
+
+  .product-image-cover {
+    height: 298px;
   }
 }
