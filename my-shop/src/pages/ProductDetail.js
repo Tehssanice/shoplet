@@ -1,8 +1,32 @@
 import React from "react";
 import useFetch from "../components/useFetch";
+import Carousel from "react-multi-carousel";
 
 export default function ProductDetail() {
   const { data: reviews } = useFetch("http://localhost:8000/reviews");
+
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 4,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 480 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 480, min: 280 },
+      items: 1,
+    },
+    extraMobile: {
+      breakpoint: { max: 280, min: 0 },
+      items: 1,
+    },
+  };
 
   return (
     <div className="section-padding">
@@ -138,43 +162,45 @@ export default function ProductDetail() {
             <div className="reviews-wrapper row">
               {reviews && (
                 <>
-                  {reviews.map((review) => (
-                    <div className="col-xs-12 col-sm-6 col-md-6 mb-4">
-                      <div className="card ">
-                        <div className="">
-                          <span className="badge bg-green rounded-0">
-                            {review.rate}
-                            <i className="bi bi-star-fill ms-1"></i>
-                          </span>
-                        </div>
-                        <div className="card-body">
-                          <div className="review-image-cover">
-                            <div className="review-img">
-                              <img src={review.image} alt="" />
-                            </div>
+                  <Carousel responsive={responsive}>
+                    {reviews.map((review) => (
+                      <div className="col mb-4">
+                        <div className="card ">
+                          <div className="">
+                            <span className="badge bg-green rounded-0">
+                              {review.rate}
+                              <i className="bi bi-star-fill ms-1"></i>
+                            </span>
                           </div>
-                          <div className="d-flex flex-column mt-3 stack">
-                            <div className="hstack gap-3">
-                              <h5 className="mb-0">{review.writer}</h5>
-                              <div className="vr"></div>
-                              <div className="date-posted">{review.date}</div>
-                            </div>
-                            <div className="hstack">
-                              <div className="">
-                                <i className="bi bi-hand-thumbs-up me-2 text-success"></i>68
-                              </div>
-                              <div className="mx-3"></div>
-                              <div className="">
-                                <i className="bi bi-hand-thumbs-down me-2 text-danger"></i>24
+                          <div className="card-body">
+                            <div className="review-image-cover">
+                              <div className="review-img">
+                                <img src={review.image} alt="" />
                               </div>
                             </div>
+                            <div className="d-flex flex-column mt-3 stack">
+                              <div className="hstack gap-3">
+                                <h5 className="mb-0">{review.writer}</h5>
+                                <div className="vr"></div>
+                                <div className="date-posted">{review.date}</div>
+                              </div>
+                              <div className="hstack">
+                                <div className="">
+                                  <i className="bi bi-hand-thumbs-up me-2 text-success"></i>68
+                                </div>
+                                <div className="mx-3"></div>
+                                <div className="">
+                                  <i className="bi bi-hand-thumbs-down me-2 text-danger"></i>24
+                                </div>
+                              </div>
+                            </div>
+                            <p className="mb-2">{review.content}</p>
                           </div>
-                          <p className="mb-2">{review.content}</p>
                         </div>
                       </div>
-                    </div>
-                  ))}
-                  <hr />
+                    ))}
+                    <hr />
+                  </Carousel>
                 </>
               )}
             </div>

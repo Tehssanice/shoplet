@@ -108,7 +108,7 @@ ul.second-list.d-flex li a > i {
 .foot {
   margin-top: 10px;
   background-color: #eceaea;
-  padding: 10px 0;
+  padding: 25px 0 10px;
 }
 
 .foot .row {
@@ -509,7 +509,7 @@ img {
   }
 
   .review-image-cover {
-    width: 45%;
+    width: 37%;
   }
 
   .product-image-cover {
@@ -584,9 +584,13 @@ img {
   .reviews-wrapper .card {
     height: 395px;
   }
+
+  .review-image-cover {
+    width: 37%;
+  }
 }
 
-@media screen and (min-device-width: 181px) and (max-device-width: 479px) {
+@media screen and (min-device-width: 181px) and (max-device-width: 280px) {
   .navbar-brand {
     width: 60%;
   }
@@ -605,5 +609,9 @@ img {
 
   .product-image-cover {
     height: 298px;
+  }
+
+  .review-image-cover {
+    width: 55%;
   }
 }

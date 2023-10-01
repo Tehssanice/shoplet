@@ -11,7 +11,7 @@ export default function BlogPage() {
         {blogs && (
           <>
             {blogs.map((blog) => (
-              <div className="col-xs-12 col-sm-6 col-md-6 mb-4">
+              <div className="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-4">
                 <div className="card">
                   <img src={blog.image} className="card-img-top rounded-0" alt="..." />
                   <div className="card-body">
