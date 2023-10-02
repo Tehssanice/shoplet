@@ -342,7 +342,7 @@ ul.second-list.d-flex li a > i {
 }
 
 .product-image-cover {
-  height: 500px;
+  /* height: 500px; */
 }
 
 .product-image {
@@ -587,6 +587,32 @@ img {
 
   .review-image-cover {
     width: 37%;
+  }
+
+  .product-image {
+    width: 100%;
+  }
+
+  .product-page .product-title {
+    font-size: 29px;
+  }
+
+  .product-price p,
+  .product-price h5 {
+    font-size: 13px;
+  }
+
+  .cart-buttons .buttons a.btn {
+    font-size: 14px;
+    padding: 5px 10px !important;
+  }
+
+  .product-info p.mb-1 {
+    font-size: 13px;
+  }
+
+  .container .row .col-12:nth-child(2) {
+    margin-bottom: 20px;
   }
 }
 
