@@ -252,6 +252,7 @@ ul.second-list.d-flex li a > i {
 }
 
 .card .ratings,
+.offcanvas .product-name,
 .card .product-name {
   white-space: nowrap;
   overflow: hidden;
@@ -406,6 +407,42 @@ img {
   font-size: 15px;
   text-align: start;
 }
+
+i.bi.bi-truck,
+i.bi.bi-headphones {
+  font-size: 30px;
+}
+
+.section-padding .contact {
+  width: 92%;
+  margin: 30px auto;
+  text-align: start;
+}
+
+.section-padding .contact .btn-ecomm {
+  border-radius: 1px !important;
+}
+
+.background-wrapper .row-container .card-body Button {
+  font-size: 12px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+.cart-button-carrier {
+  border: 1px solid #4b4a4a;
+  text-align: center;
+}
+
+/* .modal.dialog .modal-content .modal-footer button.btn.btn-secondary a {
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+.section-padding .contact .modal-content {
+  background-color: #333 !important;
+  color: #fff;
+} */
 
 @media screen and (max-width: 480px) {
   .navbar-brand {
@@ -602,6 +639,7 @@ img {
     font-size: 13px;
   }
 
+  .cart-buttons button,
   .cart-buttons .buttons a.btn {
     font-size: 14px;
     padding: 5px 10px !important;

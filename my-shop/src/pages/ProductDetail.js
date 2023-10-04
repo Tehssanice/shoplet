@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import useFetch from "../components/useFetch";
 import Carousel from "react-multi-carousel";
+import ProductList from "../components/ProductList";
+import Button from "react-bootstrap/Button";
+import Offcanvas from "react-bootstrap/Offcanvas";
 
 export default function ProductDetail() {
+  const { data: products, isLoading, error } = useFetch("https://fakestoreapi.com/products");
   const { data: reviews } = useFetch("http://localhost:8000/reviews");
 
   const responsive = {
@@ -27,6 +31,11 @@ export default function ProductDetail() {
       items: 1,
     },
   };
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <div className="section-padding">
@@ -64,13 +73,31 @@ export default function ProductDetail() {
 
               <div className="cart-buttons mt-3">
                 <div className="buttons d-flex flex-column flex-lg-row gap-3 mt-4">
-                  <a href="/" className="btn btn-lg btn-dark btn-ecomm px-5 py-3 col-lg-6">
-                    <i className="bi bi-basket2 me-2"></i>Add to Cart
-                  </a>
-                  <a href="/" className="btn btn-lg btn-outline-dark btn-ecomm px-5 py-3 col-lg-6">
+                  {/* <a href="#" className="btn btn-lg btn-dark btn-ecomm px-5 py-3 col-lg-6">
+                    <i className="bi bi-basket2 me-2" onClick={handleShow}></i>Add to Cart
+                  </a> */}
+
+                  <Button
+                    variant="primary"
+                    onClick={handleShow}
+                    className="btn btn-lg btn-dark btn-ecomm px-5 py-3 col-lg-6"
+                  >
+                    Add to Cart
+                  </Button>
+                  <a href="#" className="btn btn-lg btn-outline-dark btn-ecomm px-5 py-3 col-lg-6">
                     <i className="bi bi-suit-heart me-2"></i>Wishlist
                   </a>
                 </div>
+
+                <Offcanvas show={show} onHide={handleClose}>
+                  <Offcanvas.Header closeButton>
+                    <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+                  </Offcanvas.Header>
+                  <Offcanvas.Body>
+                    Some text as placeholder. In real life you can have the elements you have chosen. Like, text,
+                    images, lists, etc.
+                  </Offcanvas.Body>
+                </Offcanvas>
               </div>
               <hr className="my-3" />
               <div className="product-info text-start">
@@ -88,69 +115,71 @@ export default function ProductDetail() {
           </div>
           <hr />
 
-          <div className="customer-ratings">
-            <h6 className="fw-bold mb-3">Customer Ratings</h6>
-            <div className="d-flex align-items-center gap-4 gap-lg-5 flex-wrap flex-lg-nowrap">
-              <div className="">
-                <h1 className="mb-2 fw-bold">
-                  4.6
-                  <span className="fs-5 ms-2 text-warning">
-                    <i className="bi bi-star-fill"></i>
-                  </span>
-                </h1>
-                <p className="mb-0">3.8k Verified Buyers</p>
-              </div>
-              <div className="vr d-none d-lg-block"></div>
-              <div className="w-100">
-                <div className="rating-wrrap hstack gap-2 align-items-center">
-                  <p className="mb-0">5</p>
-                  <div className="">
-                    <i className="bi bi-star"></i>
-                  </div>
-                  <div className="progress flex-grow-1 mb-0 rounded-0">
-                    <div className="progress-bar bg-success" role="progressbar"></div>
-                  </div>
-                  <p className="mb-0">1528</p>
+          <div className="section-padding two">
+            <div className="customer-ratings">
+              <h6 className="fw-bold mb-3">Customer Ratings</h6>
+              <div className="d-flex align-items-center gap-4 gap-lg-5 flex-wrap flex-lg-nowrap">
+                <div className="">
+                  <h1 className="mb-2 fw-bold">
+                    4.6
+                    <span className="fs-5 ms-2 text-warning">
+                      <i className="bi bi-star-fill"></i>
+                    </span>
+                  </h1>
+                  <p className="mb-0">3.8k Verified Buyers</p>
                 </div>
-                <div className="rating-wrrap hstack gap-2 align-items-center">
-                  <p className="mb-0">4</p>
-                  <div className="">
-                    <i className="bi bi-star"></i>
+                <div className="vr d-none d-lg-block"></div>
+                <div className="w-100">
+                  <div className="rating-wrrap hstack gap-2 align-items-center">
+                    <p className="mb-0">5</p>
+                    <div className="">
+                      <i className="bi bi-star"></i>
+                    </div>
+                    <div className="progress flex-grow-1 mb-0 rounded-0">
+                      <div className="progress-bar bg-success" role="progressbar"></div>
+                    </div>
+                    <p className="mb-0">1528</p>
                   </div>
-                  <div className="progress flex-grow-1 mb-0 rounded-0">
-                    <div className="progress-bar bg-success" role="progressbar"></div>
+                  <div className="rating-wrrap hstack gap-2 align-items-center">
+                    <p className="mb-0">4</p>
+                    <div className="">
+                      <i className="bi bi-star"></i>
+                    </div>
+                    <div className="progress flex-grow-1 mb-0 rounded-0">
+                      <div className="progress-bar bg-success" role="progressbar"></div>
+                    </div>
+                    <p className="mb-0">253</p>
                   </div>
-                  <p className="mb-0">253</p>
-                </div>
-                <div className="rating-wrrap hstack gap-2 align-items-center">
-                  <p className="mb-0">3</p>
-                  <div className="">
-                    <i className="bi bi-star"></i>
+                  <div className="rating-wrrap hstack gap-2 align-items-center">
+                    <p className="mb-0">3</p>
+                    <div className="">
+                      <i className="bi bi-star"></i>
+                    </div>
+                    <div className="progress flex-grow-1 mb-0 rounded-0">
+                      <div className="progress-bar bg-info" role="progressbar"></div>
+                    </div>
+                    <p className="mb-0">258</p>
                   </div>
-                  <div className="progress flex-grow-1 mb-0 rounded-0">
-                    <div className="progress-bar bg-info" role="progressbar"></div>
+                  <div className="rating-wrrap hstack gap-2 align-items-center">
+                    <p className="mb-0">2</p>
+                    <div className="">
+                      <i className="bi bi-star"></i>
+                    </div>
+                    <div className="progress flex-grow-1 mb-0 rounded-0">
+                      <div className="progress-bar bg-warning" role="progressbar"></div>
+                    </div>
+                    <p className="mb-0">78</p>
                   </div>
-                  <p className="mb-0">258</p>
-                </div>
-                <div className="rating-wrrap hstack gap-2 align-items-center">
-                  <p className="mb-0">2</p>
-                  <div className="">
-                    <i className="bi bi-star"></i>
+                  <div className="rating-wrrap hstack gap-2 align-items-center">
+                    <p className="mb-0">1</p>
+                    <div className="">
+                      <i className="bi bi-star"></i>
+                    </div>
+                    <div className="progress flex-grow-1 mb-0 rounded-0">
+                      <div className="progress-bar bg-danger" role="progressbar"></div>
+                    </div>
+                    <p className="mb-0">27</p>
                   </div>
-                  <div className="progress flex-grow-1 mb-0 rounded-0">
-                    <div className="progress-bar bg-warning" role="progressbar"></div>
-                  </div>
-                  <p className="mb-0">78</p>
-                </div>
-                <div className="rating-wrrap hstack gap-2 align-items-center">
-                  <p className="mb-0">1</p>
-                  <div className="">
-                    <i className="bi bi-star"></i>
-                  </div>
-                  <div className="progress flex-grow-1 mb-0 rounded-0">
-                    <div className="progress-bar bg-danger" role="progressbar"></div>
-                  </div>
-                  <p className="mb-0">27</p>
                 </div>
               </div>
             </div>
@@ -206,6 +235,27 @@ export default function ProductDetail() {
             </div>
           </div>
         </div>
+
+        <div className="divider">
+          <div className="hr">
+            <hr />
+          </div>
+          <div className="text-center pb-3">
+            <h2 className="mb-0 h3 fw-bold">Similar Products</h2>
+          </div>
+        </div>
+        {error && <div>{error}</div>}
+        {isLoading && (
+          <div>
+            <div className="d-flex justify-content-center">
+              <div className="spinner-border" role="status">
+                {/* <span className="sr-only">Loading...</span> */}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {products && <ProductList product={products} />}
       </div>
     </div>
   );

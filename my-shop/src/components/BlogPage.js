@@ -3,15 +3,14 @@ import useFetch from "./useFetch";
 
 export default function BlogPage() {
   const { data: blogs } = useFetch("http://localhost:8000/blogs");
-  console.log(blogs);
 
   return (
     <div className="blog-cards">
       <div className="row">
         {blogs && (
           <>
-            {blogs.map((blog) => (
-              <div className="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-4">
+            {blogs.map((blog, index) => (
+              <div className="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-4" key={index}>
                 <div className="card">
                   <img src={blog.image} className="card-img-top rounded-0" alt="..." />
                   <div className="card-body">

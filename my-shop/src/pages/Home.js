@@ -1,16 +1,25 @@
 import React, { useState } from "react";
+import { Button } from "react-bootstrap";
 import Carousel from "react-bootstrap/Carousel";
 import ProductList from "../components/ProductList";
 import useFetch from "../components/useFetch";
 import BlogPage from "../components/BlogPage";
+import { Offcanvas } from "react-bootstrap";
+import Offcanvass from "../components/Offcanvass";
+import { useCart } from "react-use-cart";
 
 export default function Home() {
   const { data: products, isLoading, error } = useFetch("https://fakestoreapi.com/products");
   const { data: categories } = useFetch("https://fakestoreapi.com/products/categories");
   // const { data: items } = useFetch("https://hub.dummyapis.com/employee");
-  // console.log(categories);
 
   const [filteredProducts, setFilteredProducts] = useState("");
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const { isEmpty, totalItems, totalUniqueItems, updateItemQuantity, removeItem, emptyCart } = useCart();
 
   return (
     <>
@@ -97,8 +106,8 @@ export default function Home() {
                     </button>
                     {categories && (
                       <>
-                        {categories.map((category) => (
-                          <li className="nav-item" role="presentation" key={category.index}>
+                        {categories.map((category, index) => (
+                          <li className="nav-item" role="presentation" key={index}>
                             <button
                               onClick={() => setFilteredProducts(category)}
                               className="btn btn-outline-dark sentence-case "
@@ -123,9 +132,9 @@ export default function Home() {
                 <>
                   {products
                     .filter((product) => (filteredProducts ? product.category === filteredProducts : product))
-                    .map((product) => (
-                      <div className="col-lg-3 col-6 mb-4">
-                        <div className="card " key={product.id}>
+                    .map((product, index) => (
+                      <div className="col-lg-3 col-6 mb-4" key={index}>
+                        <div className="card ">
                           <div className="position-relative overflow-hidden">
                             <a href="/product-detail">
                               <div className="card-image">
@@ -143,6 +152,10 @@ export default function Home() {
                                 {`$`}
                                 {product.price || product.age}
                               </p>
+
+                              <Button className="btn btn-dark mt-3" onClick={handleShow}>
+                                Add to cart
+                              </Button>
                             </div>
                           </div>
                         </div>
@@ -150,6 +163,54 @@ export default function Home() {
                     ))}
                 </>
               )}
+
+              <Offcanvas show={show} onHide={handleClose}>
+                <Offcanvas.Header closeButton>
+                  <Offcanvas.Title>You have {totalItems} item(s)</Offcanvas.Title>
+                </Offcanvas.Header>
+                <hr />
+
+                <Offcanvas.Body>
+                  {products && (
+                    <>
+                      {products.map((product, index) => (
+                        <div className="row align-items-center mb-3" key={index}>
+                          <div className="col product-img mb-2">
+                            <img src={product.image} alt="" />
+                          </div>
+                          <div className="col product-name">{product.title}</div>
+                          <div className="col product-price">${product.price}</div>
+
+                          <div className="col control-button d-flex gap-2">
+                            <button
+                              className="btn btn-info"
+                              onClick={() => updateItemQuantity(product.id, product.quantity - 1)}
+                            >
+                              -
+                            </button>
+                            {/* <div>{product.quantity}</div> */}
+                            <button
+                              className="btn btn-info"
+                              onClick={() => updateItemQuantity(product.id, product.quantity + 1)}
+                            >
+                              +
+                            </button>
+                            <button className="btn btn-danger">
+                              <i className="bi bi-search" aria-hidden="true"></i>
+                            </button>
+                          </div>
+                          <hr />
+                        </div>
+                      ))}
+                    </>
+                  )}
+
+                  <div className="cart-button-carrier">
+                    <span>Total </span>
+                    <button className="btn">$0</button>
+                  </div>
+                </Offcanvas.Body>
+              </Offcanvas>
             </div>
           </div>
 
@@ -219,6 +280,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Offcanvass items={products} />
 
       <section className="section-padding">
         <div className="container">

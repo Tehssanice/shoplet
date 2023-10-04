@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Carousel from "react-multi-carousel";
+import Button from "react-bootstrap/Button";
+import { Offcanvas } from "react-bootstrap";
 import "react-multi-carousel/lib/styles.css";
 
 export default function ProductList(props) {
   const products = props.product;
-  // console.log(products);
+  const [show, setShow] = useState(false);
+
+  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
 
   const responsive = {
     superLargeDesktop: {
@@ -36,8 +41,8 @@ export default function ProductList(props) {
           {products && (
             <>
               <Carousel responsive={responsive}>
-                {products.map((product) => (
-                  <div className="card " key={product.id}>
+                {products.map((product, index) => (
+                  <div className="card " key={index}>
                     <div className="position-relative overflow-hidden">
                       <a href="/product-detail">
                         <div className="card-image">
@@ -50,6 +55,9 @@ export default function ProductList(props) {
                         <h6 className="mb-1 fw-bold product-name">{product.title}</h6>
                         <div className="ratings h6">{product.category}</div>
                         <p className="mb-0 h6 fw-bold product-price">$ {product.price}</p>
+                        <Button className="btn btn-dark mt-3" onClick={handleShow}>
+                          Add to cart
+                        </Button>
                       </div>
                     </div>
                   </div>

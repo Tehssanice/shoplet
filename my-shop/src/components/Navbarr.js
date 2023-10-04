@@ -1,5 +1,6 @@
 import React from "react";
 import { Navbar, Nav, Container, Offcanvas } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export default function Navbarr() {
   return (
@@ -9,9 +10,9 @@ export default function Navbarr() {
           <Container fluid>
             <Navbar.Brand href="#">
               <div className="image-holder">
-                <a href="/">
+                <Link to={"/"}>
                   <img src="images/logo.webp" alt="" />
-                </a>
+                </Link>
               </div>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
@@ -23,12 +24,13 @@ export default function Navbarr() {
               <Offcanvas.Header closeButton>
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
                   <div className="image-holder">
-                    <a href="/">
+                    <Link to={"/"}>
                       <img src="images/logo.webp" alt="" />
-                    </a>
+                    </Link>
                   </div>
                 </Offcanvas.Title>
               </Offcanvas.Header>
+
               <Offcanvas.Body>
                 <Nav className="justify-content-start flex-grow-1 pe-3">
                   <Nav.Link href="/">Home</Nav.Link>
@@ -46,30 +48,30 @@ export default function Navbarr() {
                 <div className="list-cover">
                   <ul className="second-list d-flex">
                     <li className="nav-item">
-                      <a href="/">
+                      <Link to={"/"}>
                         <i className="bi bi-search"></i>
-                      </a>
+                      </Link>
                     </li>
 
                     <li className="nav-item">
-                      <a href="/">
+                      <Link to={"/"}>
                         <i className="bi bi-suit-heart"></i>
-                      </a>
+                      </Link>
                     </li>
 
                     <li className="nav-item basket">
-                      <a href="/">
+                      <Link to={"/"}>
                         <div className="cart">
                           <i className="bi bi-basket2 dark"></i>
                         </div>
                         <div className="display-none">0</div>
-                      </a>
+                      </Link>
                     </li>
 
                     <li className="nav-item">
-                      <a href="/">
+                      <Link to={"/"}>
                         <i className="bi bi-person-circle"></i>
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
