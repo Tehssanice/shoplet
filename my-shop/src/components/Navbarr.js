@@ -49,20 +49,20 @@ export default function Navbarr() {
                   <ul className="second-list d-flex">
                     <li className="nav-item">
                       <Link to={"/"}>
-                        <i className="bi bi-search"></i>
+                        <i className="fa fa-search"></i>
                       </Link>
                     </li>
 
                     <li className="nav-item">
                       <Link to={"/"}>
-                        <i className="bi bi-suit-heart"></i>
+                        <i className="fa fa-heart-o fw-bold"></i>
                       </Link>
                     </li>
 
                     <li className="nav-item basket">
                       <Link to={"/"}>
                         <div className="cart">
-                          <i className="bi bi-basket2 dark"></i>
+                          <i className="fa fa-cart-plus text-dark"></i>
                         </div>
                         <div className="display-none">0</div>
                       </Link>
@@ -70,7 +70,7 @@ export default function Navbarr() {
 
                     <li className="nav-item">
                       <Link to={"/"}>
-                        <i className="bi bi-person-circle"></i>
+                        <i className="fa fa-user"></i>
                       </Link>
                     </li>
                   </ul>

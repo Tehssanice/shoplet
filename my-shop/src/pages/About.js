@@ -25,7 +25,7 @@ export default function About() {
                 Hampden-Sydney College.
               </p>
             </div>
-            <div className="col-12 col-xl-6">
+            <div className="col-12 col-xl-6 mb-5">
               <img
                 src="https://images.pexels.com/photos/7679877/pexels-photo-7679877.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 className="img-fluid"
@@ -47,9 +47,7 @@ export default function About() {
             <div className="col d-flex">
               <div className="card rounded-0 shadow-none w-100">
                 <div className="card-body">
-                  {/* <img src="assets/images/icons/delivery.webp" width="60" alt="" />
-                   */}
-                  <i class="bi bi-truck"></i>
+                  <i className="bi bi-truck "></i>
 
                   <h5 className="my-3 fw-bold">Free Shipping</h5>
                   <p className="mb-0">
@@ -62,8 +60,7 @@ export default function About() {
             <div className="col d-flex">
               <div className="card rounded-0 shadow-none w-100">
                 <div className="card-body">
-                  {/* <img src="assets/images/icons/money-bag.webp" width="60" alt="" /> */}
-                  <i class="bi bi-money"></i>
+                  <i className="fa fa-credit-card fw-bold fs-10px"></i>
 
                   <h5 className="my-3 fw-bold">100% Back Gaurantee</h5>
                   <p className="mb-0">
@@ -77,9 +74,7 @@ export default function About() {
             <div className="col d-flex">
               <div className="card rounded-0 shadow-none w-100">
                 <div className="card-body">
-                  {/* <img src="assets/images/icons/support.webp" width="60" alt="" />
-                   */}
-                  <i class="bi bi-headphones"></i>
+                  <i className="bi bi-headset "></i>
 
                   <h5 className="my-3 fw-bold">Online Support 24/7</h5>
                   <p className="mb-0">

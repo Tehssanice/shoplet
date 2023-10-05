@@ -67,9 +67,9 @@ export default function ProductDetail() {
               <div className="product-price d-flex align-items-center gap-3">
                 <div className="h5 fw-bold">$458</div>
                 <div className="h6 fw-light text-muted text-decoration-line-through">$2089</div>
-                <div className="h5 fw-bold text-danger">(70% off)</div>
+                <div className="h5 fw-bold text-warning">(70% off)</div>
               </div>
-              <p className="fw-bold mb-0 mt-1 text-danger text-start">Inclusive of all taxes</p>
+              <p className="fw-bold mb-0 mt-1 text-light text-start">Inclusive of all taxes</p>
 
               <div className="cart-buttons mt-3">
                 <div className="buttons d-flex flex-column flex-lg-row gap-3 mt-4">
@@ -80,11 +80,11 @@ export default function ProductDetail() {
                   <Button
                     variant="primary"
                     onClick={handleShow}
-                    className="btn btn-lg btn-dark btn-ecomm px-5 py-3 col-lg-6"
+                    className="btn btn-lg btn-light btn-ecomm px-5 py-3 col-lg-6"
                   >
                     Add to Cart
                   </Button>
-                  <a href="#" className="btn btn-lg btn-outline-dark btn-ecomm px-5 py-3 col-lg-6">
+                  <a href="#" className="btn btn-lg btn-outline-light btn-ecomm px-5 py-3 col-lg-6">
                     <i className="bi bi-suit-heart me-2"></i>Wishlist
                   </a>
                 </div>
@@ -196,10 +196,10 @@ export default function ProductDetail() {
                       <div className="col mb-4">
                         <div className="card ">
                           <div className="">
-                            <span className="badge bg-green rounded-0">
+                            {/* <span className="badge bg-green rounded-0">
                               {review.rate}
                               <i className="bi bi-star-fill ms-1"></i>
-                            </span>
+                            </span> */}
                           </div>
                           <div className="card-body">
                             <div className="review-image-cover">
@@ -236,26 +236,28 @@ export default function ProductDetail() {
           </div>
         </div>
 
-        <div className="divider">
-          <div className="hr">
-            <hr />
-          </div>
-          <div className="text-center pb-3">
-            <h2 className="mb-0 h3 fw-bold">Similar Products</h2>
-          </div>
-        </div>
-        {error && <div>{error}</div>}
-        {isLoading && (
-          <div>
-            <div className="d-flex justify-content-center">
-              <div className="spinner-border" role="status">
-                {/* <span className="sr-only">Loading...</span> */}
-              </div>
+        <div className="background-wrapper">
+          <div className="divider">
+            <div className="hr">
+              <hr />
+            </div>
+            <div className="text-center pb-3">
+              <h2 className="mb-0 h3 fw-bold">Similar Products</h2>
             </div>
           </div>
-        )}
+          {error && <div>{error}</div>}
+          {isLoading && (
+            <div>
+              <div className="d-flex justify-content-center">
+                <div className="spinner-border" role="status">
+                  {/* <span className="sr-only">Loading...</span> */}
+                </div>
+              </div>
+            </div>
+          )}
 
-        {products && <ProductList product={products} />}
+          {products && <ProductList product={products} />}
+        </div>
       </div>
     </div>
   );

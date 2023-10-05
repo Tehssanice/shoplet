@@ -51,7 +51,7 @@ export default function Offcanvass(props) {
                       +
                     </button>
                     <button className="btn btn-danger">
-                      <i className="bi bi-search" aria-hidden="true"></i>
+                      <i className="fa fa-trash" aria-hidden="true"></i>
                     </button>
                   </div>
                   <hr />

@@ -6,6 +6,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+div#root {
+  /* background: radial-gradient(#34e89e, #cbb4d4); */
+  background: radial-gradient(#44a08d, #0f3443);
+  color: #fff;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
@@ -86,8 +92,10 @@ ul.second-list.d-flex li {
 .display-none {
   position: absolute;
   top: -12px;
-  left: 6px;
-  background: red;
+  left: 12px;
+  background: radial-gradient(#44a08d, #0f3443);
+
+  /* background: #6dcada; */
   border-radius: 50%;
   padding: 1px 6px;
   color: #fff;
@@ -107,7 +115,7 @@ ul.second-list.d-flex li a > i {
 
 .foot {
   margin-top: 10px;
-  background-color: #eceaea;
+  /* background-color: #eceaea; */
   padding: 25px 0 10px;
 }
 
@@ -125,7 +133,8 @@ ul.second-list.d-flex li a > i {
   margin-bottom: 10px;
 }
 
-.foot img {
+.foot .image-holder img {
+  filter: invert(1);
   width: 100%;
 }
 
@@ -159,8 +168,12 @@ ul.second-list.d-flex li a > i {
   float: right;
 }
 
+.foot .row .col-12 ul a li {
+  color: #fff;
+}
+
 .foot ul.d-flex li .circle {
-  border: 1px solid #333;
+  border: 1px solid #fff;
   padding: 4px 7px;
   border-radius: 50%;
   text-align: center;
@@ -203,16 +216,14 @@ ul.second-list.d-flex li a > i {
 }
 
 .divider h2 {
+  font-size: 22px;
   font-weight: 700;
   background-color: #fff;
   padding: 10px;
+  color: #000;
   position: absolute;
   top: -25px;
   left: 42%;
-}
-
-.divider.color h2 {
-  background-color: #f4f4f4c7;
 }
 
 .section-padding {
@@ -262,14 +273,15 @@ ul.second-list.d-flex li a > i {
 
 .card-body {
   border-top: 1px solid #d0cccc !important;
+  background: linear-gradient(45deg, #184d55, transparent);
 }
 
 .card p.mb-0.h6.fw-bold.product-price {
-  color: #bd3a3a;
+  /* color: ; */
 }
 
 .background-wrapper {
-  background-color: #f4f4f4c7;
+  padding-top: 10px;
 }
 
 .form-cover {
@@ -285,8 +297,13 @@ ul.second-list.d-flex li a > i {
   flex-direction: column;
   text-align: start;
   row-gap: 15px;
-  color: #6b6a6a;
+  color: #fff;
   font-weight: 500;
+}
+
+.form-cover a {
+  color: #fff;
+  /* text-decoration: none; */
 }
 
 .form-cover form input {
@@ -423,6 +440,7 @@ i.bi.bi-headphones {
   border-radius: 1px !important;
 }
 
+.product-list .product-info button,
 .background-wrapper .row-container .card-body Button {
   font-size: 12px;
   border-radius: 2px;
@@ -504,7 +522,7 @@ i.bi.bi-headphones {
   .divider h2 {
     font-size: 15px;
     font-weight: 700;
-    background-color: #fff;
+    /* background-color: #fff; */
     padding: 10px;
     position: absolute;
     top: -21px;

@@ -55,21 +55,21 @@ export default function Footer() {
             <li>
               <div className="circle">
                 <a href="/">
-                  <i className="bi bi-linkedin"></i>
+                  <i className="bi bi-linkedin text-light"></i>
                 </a>
               </div>
             </li>
             <li>
               <div className="circle">
                 <a href="mailto:tessychidubem@gmail.com">
-                  <i className="bi bi-envelope"></i>
+                  <i className="bi bi-envelope text-light"></i>
                 </a>
               </div>
             </li>
             <li>
               <div className="circle">
                 <a href="/">
-                  <i className="bi bi-twitter "></i>
+                  <i className="bi bi-twitter text-light"></i>
                 </a>
               </div>
             </li>
