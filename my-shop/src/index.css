@@ -91,14 +91,13 @@ ul.second-list.d-flex li {
 }
 .display-none {
   position: absolute;
-  top: -12px;
+  top: -8px;
   left: 12px;
   background: radial-gradient(#44a08d, #0f3443);
-
-  /* background: #6dcada; */
   border-radius: 50%;
-  padding: 1px 6px;
+  padding: 1px 5px;
   color: #fff;
+  font-size: 11px;
 }
 
 ul.second-list.d-flex li a > i {
@@ -115,7 +114,6 @@ ul.second-list.d-flex li a > i {
 
 .foot {
   margin-top: 10px;
-  /* background-color: #eceaea; */
   padding: 25px 0 10px;
 }
 
@@ -276,14 +274,6 @@ ul.second-list.d-flex li a > i {
   background: linear-gradient(45deg, #184d55, transparent);
 }
 
-.card p.mb-0.h6.fw-bold.product-price {
-  /* color: ; */
-}
-
-.background-wrapper {
-  padding-top: 10px;
-}
-
 .form-cover {
   border: 1px solid #c0b8b8;
   margin: 30px auto;
@@ -303,7 +293,6 @@ ul.second-list.d-flex li a > i {
 
 .form-cover a {
   color: #fff;
-  /* text-decoration: none; */
 }
 
 .form-cover form input {
@@ -357,10 +346,6 @@ ul.second-list.d-flex li a > i {
 .card-image img:hover {
   height: 200px;
   transition: all ease-in 0.5s;
-}
-
-.product-image-cover {
-  /* height: 500px; */
 }
 
 .product-image {
@@ -452,16 +437,6 @@ i.bi.bi-headphones {
   text-align: center;
 }
 
-/* .modal.dialog .modal-content .modal-footer button.btn.btn-secondary a {
-  color: #fff !important;
-  text-decoration: none !important;
-}
-
-.section-padding .contact .modal-content {
-  background-color: #333 !important;
-  color: #fff;
-} */
-
 @media screen and (max-width: 480px) {
   .navbar-brand {
     width: 75%;
@@ -522,7 +497,6 @@ i.bi.bi-headphones {
   .divider h2 {
     font-size: 15px;
     font-weight: 700;
-    /* background-color: #fff; */
     padding: 10px;
     position: absolute;
     top: -21px;

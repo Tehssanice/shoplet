@@ -9,6 +9,8 @@ export default function Offcanvass(props) {
 
   const { isEmpty, totalItems, totalUniqueItems, updateItemQuantity, removeItem, emptyCart } = useCart();
 
+  const [cart, setCart] = useState([]);
+
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
@@ -21,15 +23,15 @@ export default function Offcanvass(props) {
 
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>You have {totalItems} item(s)</Offcanvas.Title>
+          <Offcanvas.Title>You have {cart.length} item(s)</Offcanvas.Title>
         </Offcanvas.Header>
         <hr />
 
         <Offcanvas.Body>
           {products && (
             <>
-              {products.map((product, index) => (
-                <div className="row align-items-center mb-3" key={index}>
+              {products.map((product) => (
+                <div className="row align-items-center mb-3" key={product.id}>
                   <div className="col product-img mb-2">
                     <img src={product.image} alt="" />
                   </div>

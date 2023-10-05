@@ -5,7 +5,9 @@ import { Offcanvas } from "react-bootstrap";
 import "react-multi-carousel/lib/styles.css";
 
 export default function ProductList(props) {
-  const products = props.product;
+  // const products = props.product;
+  // const handleClick = props.handleClick;
+  const { products, handleClick } = props;
   const [show, setShow] = useState(false);
 
   const handleShow = () => setShow(true);
@@ -42,8 +44,8 @@ export default function ProductList(props) {
             {products && (
               <>
                 <Carousel responsive={responsive}>
-                  {products.map((product, index) => (
-                    <div className="card " key={index}>
+                  {products.map((product) => (
+                    <div className="card " key={product.id}>
                       <div className="position-relative overflow-hidden">
                         <a href="/product-detail">
                           <div className="card-image">
@@ -56,7 +58,7 @@ export default function ProductList(props) {
                           <h6 className="mb-1 fw-bold product-name">{product.title}</h6>
                           <div className="ratings h6">{product.category}</div>
                           <p className="mb-0 h6 fw-bold product-price">$ {product.price}</p>
-                          <Button className="btn btn-dark mt-3" onClick={handleShow}>
+                          <Button className="btn btn-dark mt-3" onClick={() => handleClick(product)}>
                             Add to cart
                           </Button>
                         </div>

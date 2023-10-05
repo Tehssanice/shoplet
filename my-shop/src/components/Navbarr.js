@@ -1,8 +1,11 @@
 import React from "react";
+import { useState } from "react";
 import { Navbar, Nav, Container, Offcanvas } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export default function Navbarr() {
+  const [cart, setCart] = useState([]);
+
   return (
     <div className="nav-cover">
       {["lg"].map((expand) => (
@@ -64,7 +67,7 @@ export default function Navbarr() {
                         <div className="cart">
                           <i className="fa fa-cart-plus text-dark"></i>
                         </div>
-                        <div className="display-none">0</div>
+                        <div className="display-none">{cart.length}</div>
                       </Link>
                     </li>
 

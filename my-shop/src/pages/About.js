@@ -47,7 +47,7 @@ export default function About() {
             <div className="col d-flex">
               <div className="card rounded-0 shadow-none w-100">
                 <div className="card-body">
-                  <i className="bi bi-truck "></i>
+                  <i className="fa fa-truck fs-3"></i>
 
                   <h5 className="my-3 fw-bold">Free Shipping</h5>
                   <p className="mb-0">
@@ -60,7 +60,7 @@ export default function About() {
             <div className="col d-flex">
               <div className="card rounded-0 shadow-none w-100">
                 <div className="card-body">
-                  <i className="fa fa-credit-card fw-bold fs-10px"></i>
+                  <i className="fa fa-credit-card fw-bold fs-4"></i>
 
                   <h5 className="my-3 fw-bold">100% Back Gaurantee</h5>
                   <p className="mb-0">
@@ -74,7 +74,7 @@ export default function About() {
             <div className="col d-flex">
               <div className="card rounded-0 shadow-none w-100">
                 <div className="card-body">
-                  <i className="bi bi-headset "></i>
+                  <i className="fa fa-headphones fw-bold fs-3"></i>
 
                   <h5 className="my-3 fw-bold">Online Support 24/7</h5>
                   <p className="mb-0">

@@ -14,12 +14,29 @@ export default function Home() {
   // const { data: items } = useFetch("https://hub.dummyapis.com/employee");
 
   const [filteredProducts, setFilteredProducts] = useState("");
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const { isEmpty, totalItems, totalUniqueItems, updateItemQuantity, removeItem, emptyCart } = useCart();
+  const [cart, setCart] = useState([]);
+
+  const handleClick = (product) => {
+    let isPresent = false;
+    cart.forEach((oneItem) => {
+      if (product.id === oneItem.id) {
+        isPresent = true;
+      }
+    });
+    if (isPresent) {
+      return;
+    }
+    setCart([...cart, product]);
+    console.log(product);
+  };
+
+  // const { isEmpty, totalItems, totalUniqueItems, updateItemQuantity, removeItem, emptyCart } = useCart();
 
   return (
     <>
@@ -84,7 +101,7 @@ export default function Home() {
             </div>
           )}
 
-          {products && <ProductList product={products} />}
+          {products && <ProductList products={products} handleClick={handleClick} />}
         </div>
       </div>
 
@@ -136,8 +153,8 @@ export default function Home() {
                 <>
                   {products
                     .filter((product) => (filteredProducts ? product.category === filteredProducts : product))
-                    .map((product, index) => (
-                      <div className="col-lg-3 col-6 mb-4" key={index}>
+                    .map((product) => (
+                      <div className="col-lg-3 col-6 mb-4" key={product.id}>
                         <div className="card ">
                           <div className="position-relative overflow-hidden">
                             <a href="/product-detail">
@@ -170,15 +187,15 @@ export default function Home() {
 
               <Offcanvas show={show} onHide={handleClose}>
                 <Offcanvas.Header closeButton>
-                  <Offcanvas.Title>You have {totalItems} item(s)</Offcanvas.Title>
+                  <Offcanvas.Title>You have {cart.length} item(s)</Offcanvas.Title>
                 </Offcanvas.Header>
                 <hr />
 
                 <Offcanvas.Body>
                   {products && (
                     <>
-                      {products.map((product, index) => (
-                        <div className="row align-items-center mb-3" key={index}>
+                      {products.map((product) => (
+                        <div className="row align-items-center mb-3" key={product.id}>
                           <div className="col product-img mb-2">
                             <img src={product.image} alt="" />
                           </div>
@@ -188,14 +205,14 @@ export default function Home() {
                           <div className="col control-button d-flex gap-2">
                             <button
                               className="btn btn-info"
-                              onClick={() => updateItemQuantity(product.id, product.quantity - 1)}
+                              // onClick={() => updateItemQuantity(product.id, product.quantity - 1)}
                             >
                               -
                             </button>
                             {/* <div>{product.quantity}</div> */}
                             <button
                               className="btn btn-info"
-                              onClick={() => updateItemQuantity(product.id, product.quantity + 1)}
+                              // onClick={() => updateItemQuantity(product.id, product.quantity + 1)}
                             >
                               +
                             </button>

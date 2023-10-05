@@ -84,7 +84,7 @@ export default function ProductDetail() {
                   >
                     Add to Cart
                   </Button>
-                  <a href="#" className="btn btn-lg btn-outline-light btn-ecomm px-5 py-3 col-lg-6">
+                  <a href="#/" className="btn btn-lg btn-outline-light btn-ecomm px-5 py-3 col-lg-6">
                     <i className="bi bi-suit-heart me-2"></i>Wishlist
                   </a>
                 </div>
@@ -192,15 +192,9 @@ export default function ProductDetail() {
               {reviews && (
                 <>
                   <Carousel responsive={responsive}>
-                    {reviews.map((review) => (
-                      <div className="col mb-4">
+                    {reviews.map((review, index) => (
+                      <div className="col mb-4" key={index}>
                         <div className="card ">
-                          <div className="">
-                            {/* <span className="badge bg-green rounded-0">
-                              {review.rate}
-                              <i className="bi bi-star-fill ms-1"></i>
-                            </span> */}
-                          </div>
                           <div className="card-body">
                             <div className="review-image-cover">
                               <div className="review-img">

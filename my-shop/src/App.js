@@ -1,4 +1,5 @@
 import "./App.css";
+import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./components/Navbarr";
 import Footer from "./components/Footer";
