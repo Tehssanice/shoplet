@@ -6,7 +6,7 @@ import useFetch from "../components/useFetch";
 import BlogPage from "../components/BlogPage";
 import { Offcanvas } from "react-bootstrap";
 import Offcanvass from "../components/Offcanvass";
-import { useCart } from "react-use-cart";
+import useCartItems from "../components/useCartItems";
 
 export default function Home() {
   const { data: products, isLoading, error } = useFetch("https://fakestoreapi.com/products");
@@ -20,21 +20,7 @@ export default function Home() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const [cart, setCart] = useState([]);
-
-  const handleClick = (product) => {
-    let isPresent = false;
-    cart.forEach((oneItem) => {
-      if (product.id === oneItem.id) {
-        isPresent = true;
-      }
-    });
-    if (isPresent) {
-      return;
-    }
-    setCart([...cart, product]);
-    console.log(product);
-  };
+  const { cart, handleClick } = useCartItems();
 
   // const { isEmpty, totalItems, totalUniqueItems, updateItemQuantity, removeItem, emptyCart } = useCart();
 
@@ -187,7 +173,7 @@ export default function Home() {
 
               <Offcanvas show={show} onHide={handleClose}>
                 <Offcanvas.Header closeButton>
-                  <Offcanvas.Title>You have {cart.length} item(s)</Offcanvas.Title>
+                  <Offcanvas.Title>You have {cart} item(s)</Offcanvas.Title>
                 </Offcanvas.Header>
                 <hr />
 

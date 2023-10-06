@@ -2,9 +2,10 @@ import React from "react";
 import { useState } from "react";
 import { Navbar, Nav, Container, Offcanvas } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import useCartItems from "./useCartItems";
 
 export default function Navbarr() {
-  const [cart, setCart] = useState([]);
+  const { cart, handleClick } = useCartItems();
 
   return (
     <div className="nav-cover">
@@ -67,7 +68,7 @@ export default function Navbarr() {
                         <div className="cart">
                           <i className="fa fa-cart-plus text-dark"></i>
                         </div>
-                        <div className="display-none">{cart.length}</div>
+                        <div className="display-none">{() => handleClick(cart.length)}</div>
                       </Link>
                     </li>
 
