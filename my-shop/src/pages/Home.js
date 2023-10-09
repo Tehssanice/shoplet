@@ -4,8 +4,8 @@ import Carousel from "react-bootstrap/Carousel";
 import ProductList from "../components/ProductList";
 import useFetch from "../components/useFetch";
 import BlogPage from "../components/BlogPage";
-import { Offcanvas } from "react-bootstrap";
 import Offcanvass from "../components/Offcanvass";
+import Navbarr from "../components/Navbarr";
 import useCartItems from "../components/useCartItems";
 
 export default function Home() {
@@ -15,17 +15,18 @@ export default function Home() {
 
   const [filteredProducts, setFilteredProducts] = useState("");
 
-  const [show, setShow] = useState(false);
+  // const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  // const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
 
-  const { cart, handleClick } = useCartItems();
+  const { cart, handleClick, warning, setCart } = useCartItems();
 
   // const { isEmpty, totalItems, totalUniqueItems, updateItemQuantity, removeItem, emptyCart } = useCart();
 
   return (
     <>
+      <Navbarr handleClick={handleClick} cart={cart} items={products} setCart={setCart} />
       <div className="background-wrapper">
         <div className="section-pading one">
           <Carousel data-bs-theme="dark">
@@ -65,6 +66,7 @@ export default function Home() {
           </Carousel>
         </div>
       </div>
+      {warning && <div className="bg-red">Item already exists in cart</div>}
 
       <div className="background-wrapper">
         <div className="section-padding two">
@@ -160,7 +162,7 @@ export default function Home() {
                                 {product.price || product.age}
                               </p>
 
-                              <Button className="btn btn-dark mt-3" onClick={handleShow}>
+                              <Button className="btn btn-dark mt-3" onClick={() => handleClick(product)}>
                                 Add to cart
                               </Button>
                             </div>
@@ -170,54 +172,6 @@ export default function Home() {
                     ))}
                 </>
               )}
-
-              <Offcanvas show={show} onHide={handleClose}>
-                <Offcanvas.Header closeButton>
-                  <Offcanvas.Title>You have {cart} item(s)</Offcanvas.Title>
-                </Offcanvas.Header>
-                <hr />
-
-                <Offcanvas.Body>
-                  {products && (
-                    <>
-                      {products.map((product) => (
-                        <div className="row align-items-center mb-3" key={product.id}>
-                          <div className="col product-img mb-2">
-                            <img src={product.image} alt="" />
-                          </div>
-                          <div className="col product-name">{product.title}</div>
-                          <div className="col product-price">${product.price}</div>
-
-                          <div className="col control-button d-flex gap-2">
-                            <button
-                              className="btn btn-info"
-                              // onClick={() => updateItemQuantity(product.id, product.quantity - 1)}
-                            >
-                              -
-                            </button>
-                            {/* <div>{product.quantity}</div> */}
-                            <button
-                              className="btn btn-info"
-                              // onClick={() => updateItemQuantity(product.id, product.quantity + 1)}
-                            >
-                              +
-                            </button>
-                            <button className="btn btn-danger">
-                              <i className="fa fa-trash" aria-hidden="true"></i>
-                            </button>
-                          </div>
-                          <hr />
-                        </div>
-                      ))}
-                    </>
-                  )}
-
-                  <div className="cart-button-carrier">
-                    <span>Total </span>
-                    <button className="btn">$0</button>
-                  </div>
-                </Offcanvas.Body>
-              </Offcanvas>
             </div>
           </div>
         </div>
@@ -292,7 +246,7 @@ export default function Home() {
         </section>
       </div>
 
-      <Offcanvass items={products} />
+      {/* <Offcanvass items={products} handleClick={handleClick} cart={cart} /> */}
 
       <div className="background-wrapper">
         <section className="section-padding">

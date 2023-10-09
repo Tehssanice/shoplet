@@ -5,8 +5,6 @@ import { Offcanvas } from "react-bootstrap";
 import "react-multi-carousel/lib/styles.css";
 
 export default function ProductList(props) {
-  // const products = props.product;
-  // const handleClick = props.handleClick;
   const { products, handleClick } = props;
   const [show, setShow] = useState(false);
 
