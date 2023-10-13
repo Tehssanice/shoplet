@@ -1,23 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
-// import { useCart } from "react-use-cart";
 
 export default function Offcanvass(props) {
   const { handleClose, show, cart, setCart } = props;
   const [price, setPrice] = useState(0);
   const [quantity, setQuantity] = useState(1);
-
-  const increment = () => {
-    // setQuantity(quantity + 1);
-  };
-
-  const decrement = () => {
-    if (quantity > 0) {
-      // setQuantity(quantity - 1);
-    } else {
-      setQuantity(0);
-    }
-  };
 
   const handlePrice = () => {
     let answer = 0;
@@ -25,20 +12,36 @@ export default function Offcanvass(props) {
     setPrice(answer);
   };
 
-  const handleDelete = (id) => {
+  const handleRemove = (id) => {
     const arr = cart.filter((product) => product.id !== id);
     setCart(arr);
+    console.log("item removed");
   };
 
   const handleChange = (product, d) => {
+    let ind = -1;
+
+    cart.forEach((singleItem, index) => {
+      if (singleItem.id === product.id) {
+        ind = index;
+      }
+    });
+
+    const tempArray = cart;
+    // tempArray[ind].quantity = 1;
+    tempArray[ind].quantity += d;
+
+    if (tempArray[ind].quantity === 0) {
+      tempArray[ind].quantity = 1;
+      // setQuantity(quantity);
+    }
+    setCart([...tempArray]);
     console.log(product, d);
   };
 
   useEffect(() => {
     handlePrice();
   });
-
-  // const { isEmpty, totalItems, totalUniqueItems, updateItemQuantity, removeItem, emptyCart } = useCart();
 
   return (
     <>
@@ -60,14 +63,14 @@ export default function Offcanvass(props) {
                   <div className="col product-price">${product.price}</div>
 
                   <div className="col control-button d-flex gap-2">
-                    <button className="btn btn-info" onClick={() => handleChange(product, "-")}>
+                    <button className="btn btn-info" onClick={() => handleChange(product, -1)}>
                       -
                     </button>
                     <button className="btn btn-info">{quantity}</button>
-                    <button className="btn btn-info" onClick={() => handleChange(product, "+")}>
+                    <button className="btn btn-info" onClick={() => handleChange(product, +1)}>
                       +
                     </button>
-                    <button className="btn btn-danger" onClick={() => handleDelete(product.id)}>
+                    <button className="btn btn-danger" onClick={() => handleRemove(product.id)}>
                       <i className="fa fa-trash" aria-hidden="true"></i>
                     </button>
                   </div>

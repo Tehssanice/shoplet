@@ -6,8 +6,6 @@ export default function useCartItems() {
 
   const handleClick = (product) => {
     let isPresent = false;
-    cart.push(product);
-    setCart(cart);
 
     cart.forEach((oneItem) => {
       if (product.id === oneItem.id) {
@@ -19,7 +17,9 @@ export default function useCartItems() {
       setTimeout(() => {
         setWarning(false);
       }, 2000);
+      return;
     }
+    setCart([...cart, product]);
 
     fetch("http://localhost:8000/cart", {
       method: "POST",

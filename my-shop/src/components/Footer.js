@@ -76,6 +76,14 @@ export default function Footer() {
           </ul>
         </div>
       </div>
+
+      <hr />
+
+      <div className="row">
+        <div className="copyright">
+          <p>Copyright @2023 Shoplet All Rights Reserved</p>
+        </div>
+      </div>
     </div>
   );
 }

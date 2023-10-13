@@ -15,14 +15,7 @@ export default function Home() {
 
   const [filteredProducts, setFilteredProducts] = useState("");
 
-  // const [show, setShow] = useState(false);
-
-  // const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
-
   const { cart, handleClick, warning, setCart } = useCartItems();
-
-  // const { isEmpty, totalItems, totalUniqueItems, updateItemQuantity, removeItem, emptyCart } = useCart();
 
   return (
     <>
@@ -66,7 +59,7 @@ export default function Home() {
           </Carousel>
         </div>
       </div>
-      {warning && <div className="bg-red">Item already exists in cart</div>}
+      {warning && <div className="bg-danger fs-4">Item already exists in cart</div>}
 
       <div className="background-wrapper">
         <div className="section-padding two">
@@ -83,7 +76,7 @@ export default function Home() {
             <div>
               <div className="d-flex justify-content-center">
                 <div className="spinner-border" role="status">
-                  {/* <span className="sr-only">Loading...</span> */}
+                  <span className="sr-only">...</span>
                 </div>
               </div>
             </div>
@@ -180,7 +173,7 @@ export default function Home() {
       <div className="background-wrapper">
         <section className="product-thumb-slider section-padding">
           <div className="container">
-            <div className="divider color">
+            <div className="divider width">
               <div className="hr">
                 <hr />
               </div>
@@ -246,17 +239,15 @@ export default function Home() {
         </section>
       </div>
 
-      {/* <Offcanvass items={products} handleClick={handleClick} cart={cart} /> */}
-
       <div className="background-wrapper">
         <section className="section-padding">
           <div className="container">
-            <div className="divider color">
+            <div className="divider width">
               <div className="hr">
                 <hr />
               </div>
               <div className="text-center pb-3">
-                <h2 className="mb-0 h3 fw-bold">Blog Posts</h2>
+                <h2 className="mb-0 h3 fw-bold">Blog Posts Here</h2>
               </div>
             </div>
 
