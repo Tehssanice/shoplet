@@ -4,50 +4,24 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 export default function Offcanvass(props) {
   const { handleClose, show, cart, setCart } = props;
   const [price, setPrice] = useState(0);
-  const [quantity, setQuantity] = useState(1);
 
-  const handlePrice = () => {
-    let answer = 0;
-    cart.map((product) => (answer += quantity * product.price));
-    setPrice(answer);
-  };
+  //update quantity increment
 
-  const handleRemove = (id) => {
-    const arr = cart.filter((product) => product.id !== id);
-    setCart(arr);
-    console.log("item removed");
-  };
-
-  const handleChange = (product, d) => {
-    let ind = -1;
-
-    cart.forEach((singleItem, index) => {
-      if (singleItem.id === product.id) {
-        ind = index;
-      }
+  const handleChange = (product) => {
+    fetch(`http://localhost:8000/cart/${product.id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(product),
+    }).then(() => {
+      setCart(cart.length ? cart.map((oneProduct) => (oneProduct.id === product.id ? product : oneProduct)) : []);
     });
-
-    const tempArray = cart;
-    // tempArray[ind].quantity = 1;
-    tempArray[ind].quantity += d;
-
-    if (tempArray[ind].quantity === 0) {
-      tempArray[ind].quantity = 1;
-      // setQuantity(quantity);
-    }
-    setCart([...tempArray]);
-    console.log(product, d);
   };
-
-  useEffect(() => {
-    handlePrice();
-  });
 
   return (
     <>
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>You have {cart.length} item(s)</Offcanvas.Title>
+          <Offcanvas.Title>You have {0} item(s) in cart</Offcanvas.Title>
         </Offcanvas.Header>
         <hr />
 
@@ -63,15 +37,18 @@ export default function Offcanvass(props) {
                   <div className="col product-price">${product.price}</div>
 
                   <div className="col control-button d-flex gap-2">
-                    <button className="btn btn-info" onClick={() => handleChange(product, -1)}>
-                      -
-                    </button>
-                    <button className="btn btn-info">{quantity}</button>
-                    <button className="btn btn-info" onClick={() => handleChange(product, +1)}>
+                    <button
+                      className="btn btn-info"
+                      onClick={() => handleChange({ ...product, quantity: product.quantity + 1 })}
+                    >
                       +
                     </button>
-                    <button className="btn btn-danger" onClick={() => handleRemove(product.id)}>
-                      <i className="fa fa-trash" aria-hidden="true"></i>
+                    <button className="btn btn-info">{product.quantity}</button>
+                    <button
+                      className="btn btn-info"
+                      onClick={() => handleChange({ ...product, quantity: product.quantity - 1 })}
+                    >
+                      -
                     </button>
                   </div>
                   <hr />

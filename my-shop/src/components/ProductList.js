@@ -56,9 +56,7 @@ export default function ProductList(props) {
                           <h6 className="mb-1 fw-bold product-name">{product.title}</h6>
                           <div className="ratings h6">{product.category}</div>
                           <p className="mb-0 h6 fw-bold product-price">$ {product.price}</p>
-                          <Button className="btn btn-dark mt-3" onClick={() => handleClick(product)}>
-                            Add to cart
-                          </Button>
+                          <Button className="btn btn-dark mt-3">Add to cart</Button>
                         </div>
                       </div>
                     </div>

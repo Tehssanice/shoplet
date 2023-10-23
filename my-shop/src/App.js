@@ -14,14 +14,12 @@ import useCartItems from "./components/useCartItems";
 import useFetch from "./components/useFetch";
 
 function App() {
-  const { data: products } = useFetch("https://fakestoreapi.com/products");
-
-  const { cart, handleClick } = useCartItems();
+  const { handleClick, warning, setCart, cart } = useCartItems();
 
   return (
     <BrowserRouter>
       <div className="App">
-        <Navbarr handleClick={handleClick} cart={cart} items={products} />
+        <Navbarr handleClick={handleClick} cart={cart} setCart={setCart} />
 
         <div className="content">
           <Routes>

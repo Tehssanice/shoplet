@@ -4,22 +4,15 @@ import Carousel from "react-bootstrap/Carousel";
 import ProductList from "../components/ProductList";
 import useFetch from "../components/useFetch";
 import BlogPage from "../components/BlogPage";
-import Offcanvass from "../components/Offcanvass";
-import Navbarr from "../components/Navbarr";
-import useCartItems from "../components/useCartItems";
 
 export default function Home() {
   const { data: products, isLoading, error } = useFetch("https://fakestoreapi.com/products");
   const { data: categories } = useFetch("https://fakestoreapi.com/products/categories");
-  // const { data: items } = useFetch("https://hub.dummyapis.com/employee");
 
   const [filteredProducts, setFilteredProducts] = useState("");
 
-  const { cart, handleClick, warning, setCart } = useCartItems();
-
   return (
     <>
-      <Navbarr handleClick={handleClick} cart={cart} items={products} setCart={setCart} />
       <div className="background-wrapper">
         <div className="section-pading one">
           <Carousel data-bs-theme="dark">
@@ -59,7 +52,6 @@ export default function Home() {
           </Carousel>
         </div>
       </div>
-      {warning && <div className="bg-danger fs-4">Item already exists in cart</div>}
 
       <div className="background-wrapper">
         <div className="section-padding two">
@@ -82,7 +74,7 @@ export default function Home() {
             </div>
           )}
 
-          {products && <ProductList products={products} handleClick={handleClick} />}
+          {products && <ProductList products={products} />}
         </div>
       </div>
 
@@ -155,9 +147,7 @@ export default function Home() {
                                 {product.price || product.age}
                               </p>
 
-                              <Button className="btn btn-dark mt-3" onClick={() => handleClick(product)}>
-                                Add to cart
-                              </Button>
+                              <Button className="btn btn-dark mt-3">Add to cart</Button>
                             </div>
                           </div>
                         </div>
