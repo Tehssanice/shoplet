@@ -1,18 +1,22 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import Carousel from "react-bootstrap/Carousel";
-import ProductList from "../components/ProductList";
+import ProductList, { MiniProduct } from "../components/ProductList";
 import useFetch from "../components/useFetch";
 import BlogPage from "../components/BlogPage";
+import Navbarr from "../components/Navbarr";
+import useCartItems from "../components/useCartItems";
 
 export default function Home() {
   const { data: products, isLoading, error } = useFetch("https://fakestoreapi.com/products");
   const { data: categories } = useFetch("https://fakestoreapi.com/products/categories");
+  const [selectedCategory, setSelectedCategory] = useState("");
 
-  const [filteredProducts, setFilteredProducts] = useState("");
+  const { cart, getCart, handleClick, handleChange } = useCartItems();
 
   return (
     <>
+      <Navbarr cart={cart} getCart={getCart} products={products} handleChange={handleChange} />
       <div className="background-wrapper">
         <div className="section-pading one">
           <Carousel data-bs-theme="dark">
@@ -74,7 +78,7 @@ export default function Home() {
             </div>
           )}
 
-          {products && <ProductList products={products} />}
+          {products && <ProductList products={products} handleclick={handleClick} getCart={getCart} />}
         </div>
       </div>
 
@@ -95,7 +99,10 @@ export default function Home() {
               <div className="col-12 mx-auto">
                 <div className="product-tab-menu table-responsive">
                   <ul className="nav nav-pills flex-nowrap button-list" id="pills-tab" role="tablist">
-                    <button onClick={() => setFilteredProducts("")} className="btn btn-outline-light mx-2">
+                    <button
+                      onClick={() => setSelectedCategory("")}
+                      className={`btn btn-outline-light mx-2 ${selectedCategory === "" && "active"}`}
+                    >
                       All
                     </button>
                     {categories && (
@@ -103,8 +110,10 @@ export default function Home() {
                         {categories.map((category, index) => (
                           <li className="nav-item" role="presentation" key={index}>
                             <button
-                              onClick={() => setFilteredProducts(category)}
-                              className="btn btn-outline-light sentence-case "
+                              onClick={() => setSelectedCategory(category)}
+                              className={`btn btn-outline-light sentence-case ${
+                                selectedCategory === category && "active"
+                              }`}
                               data-bs-toggle="pill"
                               type="button"
                             >
@@ -122,39 +131,12 @@ export default function Home() {
 
           <div className="row-container">
             <div className="row row-cols-1 row-cols-md-3">
-              {products && (
-                <>
-                  {products
-                    .filter((product) => (filteredProducts ? product.category === filteredProducts : product))
-                    .map((product) => (
-                      <div className="col-lg-3 col-6 mb-4" key={product.id}>
-                        <div className="card ">
-                          <div className="position-relative overflow-hidden">
-                            <a href="/product-detail">
-                              <div className="card-image">
-                                <img src={product.imageUrl || product.image} className="card-img-top" alt="..." />
-                              </div>
-                            </a>
-                          </div>
-                          <div className="card-body">
-                            <div className="product-info text-center">
-                              <h6 className="mb-1 fw-bold product-name">
-                                {product.title || product.firstName} {product.lastName}
-                              </h6>
-                              <div className="ratings h6">{product.category}</div>
-                              <p className="mb-0 h6 fw-bold product-price">
-                                {`$`}
-                                {product.price || product.age}
-                              </p>
-
-                              <Button className="btn btn-dark mt-3">Add to cart</Button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                </>
-              )}
+              {products &&
+                products
+                  .filter((product) => (selectedCategory ? product.category === selectedCategory : product))
+                  .map((product) => (
+                    <MiniProduct getCart={getCart} key={product.id} product={product} handleclick={handleClick} />
+                  ))}
             </div>
           </div>
         </div>

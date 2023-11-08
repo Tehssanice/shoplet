@@ -2,11 +2,10 @@ import React from "react";
 import { useState } from "react";
 import { Navbar, Nav, Container, Offcanvas } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import useCartItems from "./useCartItems";
 import Offcanvass from "./Offcanvass";
 
 export default function Navbarr(props) {
-  const { cart, handleClick, setCart } = props;
+  const { cart, getCart, products, handleChange } = props;
 
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
@@ -88,14 +87,15 @@ export default function Navbarr(props) {
           </Navbar.Offcanvas>
         </Container>
       </Navbar>
-      {/*  */}
       <Offcanvass
         setShow={setShow}
         handleClose={handleClose}
         handleShow={handleShow}
         show={show}
         cart={cart}
-        setCart={setCart}
+        handleChange={handleChange}
+        getCart={getCart}
+        products={products}
       />
     </div>
   );

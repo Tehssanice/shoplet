@@ -3,6 +3,7 @@ body {
   font-family: "Catamaran", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-weight: 300;
 }
 
 div#root {
@@ -190,6 +191,7 @@ ul.second-list.d-flex li a > i {
   bottom: 36% !important;
   left: 16% !important;
   text-align: left !important;
+  font-family: "Sedgwick Ave Display", cursive !important;
 }
 
 .carousel-caption h1 {
@@ -225,6 +227,7 @@ ul.second-list.d-flex li a > i {
   color: #000;
   position: absolute;
   top: -25px;
+  font-family: "Sedgwick Ave Display", cursive !important;
   /* left: 42%; */
 }
 
@@ -444,8 +447,20 @@ i.bi.bi-headphones {
 }
 
 .cart-button-carrier {
-  border: 1px solid #4b4a4a;
+  background: radial-gradient(#44a08d, #0f3443);
+  color: #fff;
+  border-radius: 25px;
   text-align: center;
+}
+
+.cart-button-carrier .btn,
+.control-button .btn {
+  background: radial-gradient(#44a08d, #0f3443);
+  color: #fff;
+}
+
+.cart-button-carrier .btn {
+  background: transparent;
 }
 
 @media screen and (max-width: 480px) {
