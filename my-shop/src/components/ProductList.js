@@ -8,11 +8,11 @@ export default function ProductList({ products, handleclick, getCart }) {
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
-      items: 5,
+      items: 4,
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 5,
+      items: 4,
     },
     tablet: {
       breakpoint: { max: 1024, min: 480 },
@@ -20,7 +20,7 @@ export default function ProductList({ products, handleclick, getCart }) {
     },
     mobile: {
       breakpoint: { max: 480, min: 280 },
-      items: 2,
+      items: 1,
     },
     extraMobile: {
       breakpoint: { max: 280, min: 0 },

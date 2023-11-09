@@ -9,6 +9,8 @@ import useCartItems from "../components/useCartItems";
 
 export default function Home() {
   const { data: products, isLoading, error } = useFetch("https://fakestoreapi.com/products");
+  const { data: items } = useFetch("https://fakestoreapi.com/products/category/electronics");
+
   const { data: categories } = useFetch("https://fakestoreapi.com/products/categories");
   const [selectedCategory, setSelectedCategory] = useState("");
 
@@ -78,7 +80,7 @@ export default function Home() {
             </div>
           )}
 
-          {products && <ProductList products={products} handleclick={handleClick} getCart={getCart} />}
+          {products && <ProductList products={items} handleclick={handleClick} getCart={getCart} />}
         </div>
       </div>
 
