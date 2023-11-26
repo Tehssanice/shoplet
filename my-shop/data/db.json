@@ -79,32 +79,28 @@
   ],
   "cart": [
     {
-      "id": 7,
-      "quantity": 7
+      "id": 2,
+      "quantity": 3
     },
     {
-      "id": 20,
+      "id": 11,
+      "quantity": 1
+    },
+    {
+      "id": 10,
       "quantity": 2
-    },
-    {
-      "id": 3,
-      "quantity": 3
-    },
-    {
-      "id": 4,
-      "quantity": 3
     },
     {
       "id": 8,
       "quantity": 2
     },
     {
-      "id": 14,
-      "quantity": 2
+      "id": 6,
+      "quantity": 1
     },
     {
-      "id": 2,
-      "quantity": 4
+      "id": 14,
+      "quantity": 1
     }
   ]
 }

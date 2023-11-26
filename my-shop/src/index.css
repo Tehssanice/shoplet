@@ -21,14 +21,14 @@ code {
 }
 
 .nav-cover nav {
-  height: 65px;
+  min-height: 65px;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   background-color: #ffffff;
   padding: 0 1rem;
-  z-index: 20;
+  z-index: 1200;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
 .sentence-case {
@@ -64,6 +64,7 @@ ul.second-list.d-flex {
   width: 100%;
   justify-content: space-around;
   align-items: center;
+  padding-left: 0px;
 }
 
 ul.second-list.d-flex li {
@@ -79,6 +80,7 @@ ul.second-list.d-flex li {
   font-size: 15px;
   font-weight: 600;
   color: #000;
+  text-align: start;
   text-transform: uppercase;
 }
 
@@ -110,6 +112,10 @@ ul.second-list.d-flex li a > i {
 
 .navbar-toggler {
   border: none !important;
+}
+
+button.navbar-toggler {
+  padding-top: 10px;
 }
 
 .foot {
@@ -267,6 +273,17 @@ ul.second-list.d-flex li a > i {
   border-radius: 0;
 }
 
+.card:hover {
+  background: teal;
+  padding: 10px;
+  color: #fff;
+  transition: all ease-in 1s;
+}
+
+.offcanvas.offcanvas-start.show {
+  z-index: 12200;
+}
+
 .card .ratings,
 .offcanvas .product-name,
 .card .product-name {
@@ -340,13 +357,6 @@ ul.second-list.d-flex li a > i {
 
 .blog-cards .row .card-body h5 {
   font-size: 16px;
-}
-
-.card:hover {
-  background: teal;
-  padding: 10px;
-  color: #fff;
-  transition: all ease-in 0.5s;
 }
 
 .card-body a.btn.btn-outline-dark.btn-ecomm.mt-3 {
@@ -463,13 +473,28 @@ i.bi.bi-headphones {
   background: transparent;
 }
 
+#search-form {
+  display: none;
+}
+
 @media screen and (max-width: 480px) {
+  #search-form {
+    margin-bottom: 30px;
+  }
+  .container-fluid .list-cover {
+    width: 45%;
+    margin-top: 0px;
+  }
   .navbar-brand {
     width: 75%;
   }
 
   .card:hover {
     padding: 5px;
+  }
+
+  a.navbar-brand {
+    border-bottom: 2px solid #000;
   }
 
   .image-holder {
@@ -608,7 +633,7 @@ i.bi.bi-headphones {
   }
 
   .foot ul.d-flex {
-    width: 40%;
+    width: 25%;
     float: left;
   }
 
